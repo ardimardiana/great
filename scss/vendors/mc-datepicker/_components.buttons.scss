@@ -1,0 +1,65 @@
+/*============================================*/
+/*               Button Components            */
+/*============================================*/
+
+.mc-btn {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    color: $body-color;
+    text-align: center;
+    text-decoration: if($link-decoration == none, null, none);
+    white-space: $btn-white-space;
+    vertical-align: middle;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius);
+    @include transition($btn-transition);
+
+
+    &:not(#mc-btn__ok) {
+        text-transform: lowercase;
+    }
+    &::first-letter {
+        text-transform: uppercase;
+    }
+
+	&--success {
+        color: #fff;
+		background-color: var( --#{ $variable-prefix }comp-active-bg );
+        &:hover { box-shadow: 0 .1rem .5rem rgba( var( --#{ $variable-prefix }comp-active-bg-rgb ), .5 ), 0 .25rem 1rem rgba( $black, .2 ) }
+        &:active { box-shadow: 0 0 .5rem var( --#{ $variable-prefix }comp-active-bg ), 0 0 .75rem rgba( $black, 0.2 ) !important }
+        &:focus, &:active:focus { box-shadow: 0 0 0 1px var( --#{ $variable-prefix }comp-active-bg ), 0 0 .7rem .25rem rgba( var( --#{ $variable-prefix }comp-active-bg-rgb ), .4 ) !important }
+	}
+
+    &#mc-btn__cancel {
+        background-color: var( --#{ $variable-prefix }gray-400 );
+        color: var( --#{ $variable-prefix }headings-color );
+        &:hover { box-shadow: 0 .1rem .5rem rgba( var( --#{ $variable-prefix }light-rgb ), .5 ), 0 .25rem 1rem rgba( $black, .2 ) }
+        &:active { box-shadow: 0 0 .5rem var( --#{ $variable-prefix }light ), 0 0 .75rem rgba( $black, 0.2 ) !important }
+        &:focus, &:active:focus { box-shadow: 0 0 0 1px var( --#{ $variable-prefix }light ), 0 0 .7rem .25rem rgba( var( --#{ $variable-prefix }light-rgb ), .4 ) !important }
+    }
+
+	&--danger {
+        background-color: var( --#{ $variable-prefix }danger );
+		color: #fff;
+        box-shadow: 0 0 0 var( --#{ $variable-prefix }danger ), 0 0 0 rgba( $black, .25 );
+
+        &:hover { box-shadow: 0 .1rem .5rem rgba( var( --#{ $variable-prefix }danger-rgb ), .5 ), 0 .25rem 1rem rgba( $black, .2 ) }
+        &:active { box-shadow: 0 0 .5rem var( --#{ $variable-prefix }danger ), 0 0 .75rem rgba( $black, 0.2 ) !important }
+        &:focus, &:active:focus { box-shadow: 0 0 0 1px var( --#{ $variable-prefix }danger ), 0 0 .7rem .25rem rgba( var( --#{ $variable-prefix }danger-rgb ), .4 ) !important }
+	}
+
+	&:active {
+		transform: scale3d(0.95, 0.95, 0.95);
+	}
+
+	&:focus {
+		-webkit-tap-highlight-color: transparent;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+	}
+}

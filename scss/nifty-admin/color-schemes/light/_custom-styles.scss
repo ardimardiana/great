@@ -1,0 +1,51 @@
+/* -- SIDEBAR -- */
+/* ---------------------------------------------- */
+.card {
+    border: 1px solid $border-color !important;
+    box-shadow: none;
+}
+
+
+/* -- Header -- */
+/* ---------------------------------------------- */
+.header {
+    border-bottom: 1px solid $border-color;
+}
+
+
+
+
+
+/* -- Navigation -- */
+/* ---------------------------------------------- */
+.mainnav {
+    border-inline-end: 1px solid $border-color;
+}
+
+
+
+/* -- SIDEBAR -- */
+/* ---------------------------------------------- */
+.sb--pinned {
+    &:not(.sb--unite), &.sb--unite:not(.hd--expanded) {
+        .sidebar {
+            border-inline-start: 1px solid $border-color;
+        }
+    }
+
+
+    .sidebar {
+        top: $header-height + .0625;
+        .sidebar__inner {
+            border-radius: 0;
+        }
+    }
+}
+
+
+
+.sb--unite, .sb--pinned {
+    .sidebar::after {
+        display: none !important;
+    }
+}

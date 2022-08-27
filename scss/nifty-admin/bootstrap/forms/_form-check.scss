@@ -1,0 +1,44 @@
+/* -- FORM CHECK -- */
+/* ---------------------------------------------- */
+
+
+// Disable form input appearance
+// ----------------------------------------------
+.form-check-input {
+    -webkit-appearance :none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+
+// Form switch
+// ----------------------------------------------
+.form-switch .form-check-input {
+    background-color: $form-switch-bg;
+    border-color: $form-switch-bg;
+    cursor: pointer;
+    height: $form-switch-height;
+    margin-top: 0;
+    position: relative;
+    top: $form-check-min-height / 2;
+    transform: translateY( calc(-50% + 1px));
+    transition: $form-switch-transition !important;
+    user-select: none;
+
+
+    &:checked {
+        background-color: $form-switch-checked-bg;
+        border-color: $form-switch-checked-bg;
+    }
+}
+
+
+
+
+// Form Select
+// ----------------------------------------------
+.form-select option[ selected="true" ] {
+    color: $headings-color;
+    font-weight: bold;
+}

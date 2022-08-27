@@ -1,0 +1,143 @@
+// ORANGE COLOR SCHEME
+// ----------------------------------------------
+// HINT :
+// 1. Please try changing the primary and gray colors first -
+// all colors should be automatically changed.
+
+// 2. You can also change all the optional variables,
+// or find more variables at "scss/nifty-admin/variables/_variables.css"
+// and from Bootstrap's _variables.scss ( https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss )
+
+// 3. Set this as the default color scheme:
+// - Import it into "scss/nifty-admin/variables/colors/_default-scheme.scss" OR
+// - Paste all these variables into "scss/my-custom-styles/variables.scss" (Please remove all !default properties).
+
+// 4. These color schemes can be used in a variety of Expanded, Tall, Fair, and Full Header layouts.
+// Be sure to add the following classes:
+// - Expanded Header layout   : Add the class "hd--expanded" to the "#root" section.
+// - Fair Header layout       : Add the class "hd--fair" to the "#root" section.
+// - Tall Header layout       : Add the class "hd--expanded" and "hd--fair" to the "#root" section.
+// - Full Header layout       : Remove the classes "hd--expanded" and "hd--fair" from the "#root" section.
+
+
+// Theme-color-variables
+// ----------------------------------------------
+$primary                                   : #e46d26 !default;
+$gray                                      : desaturate(tint-color( $primary, 80%), 75%) !default;
+
+
+
+
+
+// Gray-color-variables
+// ----------------------------------------------
+$gray-100                                  : tint-color($gray, 80%) !default;
+$gray-200                                  : tint-color($gray, 60%) !default;
+$gray-300                                  : tint-color($gray, 40%) !default;
+$gray-400                                  : tint-color($gray, 20%) !default;
+$gray-500                                  : $gray !default;
+$gray-600                                  : shade-color($gray, 10%) !default;
+$gray-700                                  : shade-color($gray, 20%) !default;
+$gray-800                                  : shade-color($gray, 30%) !default;
+$gray-900                                  : shade-color($gray, 40%) !default;
+
+
+
+// Theme colors
+// ----------------------------------------------
+$light                                     : $gray-500 !default;
+
+
+
+// Primary components
+// ----------------------------------------------
+$component-active-color                    : $white !default;
+$component-active-bg                       : $primary !default;
+
+
+
+
+
+// BODY
+// ----------------------------------------------
+// Settings for the `<body>` element.
+// ----------------------------------------------
+$body-bg                                   : $gray-300 !default;
+$body-color                                : #7a878e !default;
+
+
+// Boxed Layout
+// $boxed-layout-bg-color                  : #000 !default;
+// $boxed-layout-bg-image                  : none !default; // EXAMPLE : url("/assets/img/boxed-bg/polygon/bg/8.jpg") !default;
+
+
+
+
+
+// MAIN NAVIGATION
+// ----------------------------------------------
+$mainnav-bg                                : $white !default;
+$mainnav-color                             : $body-color !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $mainnav-link-color                     : #000 !default;
+// $mainnav-link-active                    : #000 !default;
+// $mainnav-link-hover                     : #000 !default;
+// $mainnav-caption-color                  : #000 !default;
+// $mainnav-icon-color                     : #000 !default;
+// $mainnav-border-color                   : #000 !default;
+// $mainnav-text-muted                     : #000 !default;
+// $mainnav-headings-color                 : #000 !default;
+
+// // Active link and submenu 1st level.
+// $mainnav-submenu-active-bg              : #000 !default;
+// $mainnav-submenu-active-color           : #000 !default;
+// $mainnav-submenu-active-shadow          : none !default; // Example - Add a border to the left : inset 5px 0 0 0px $component-active-bg !default;
+
+// // Mini navigation colors
+// $mainnav-min-icon-color                 : #000 !default;
+// $mainnav-min-icon-active-color          : #000 !default;
+// $mainnav-min-submenu-active-bg          : #000 !default;
+// $mainnav-min-submenu-active-color       : #000 !default;
+
+
+
+
+
+// HEADER
+// ----------------------------------------------
+$header-bg                                 : $primary !default;
+$header-color                              : tint-color( $primary, 85% ) !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $header-btn-hover-bg                    : #000 !default;
+// $header-btn-hover-color                 : #000 !default;
+
+// // Expanded Header
+// $header-expand-bg                       : #000 !default;
+// $header-expand-color                    : #000 !default;
+// $header-expand-title-color              : #000 !default;
+// $header-expand-headings-color           : #000 !default;
+
+// // Brand
+// $brand-bg                               : #000 !default;
+// $brand-color                            : #000 !default;
+
+
+
+
+
+// SIDEBAR
+// ----------------------------------------------
+$sidebar-bg                                : $white !default;
+$sidebar-color                             : $body-color !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $sidebar-unite-bg                       : #000 !default;
+// $sidebar-unite-color                    : #000 !default;
+// $sidebar-unite-active-bg                : #000 !default;
+// $sidebar-unite-active-color             : #000 !default;
+// $sidebar-unite-border-color             : #000 !default;

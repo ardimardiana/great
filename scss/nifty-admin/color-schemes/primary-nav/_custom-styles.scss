@@ -1,0 +1,66 @@
+/* -- CENTEREN LAYOUT -- */
+/* ---------------------------------------------- */
+@media ( min-width : $centered-layout-max-width ) {
+    .centered-layout {
+        .mn--max, .mn--min {
+            .brand-title {
+                color: $brand-color !important;
+            }
+
+
+            .header__brand {
+                background-color: transparent;
+            }
+
+
+            .mainnav__inner {
+                border-top-right-radius: $sidebar-unite-outer-border;
+            }
+        }
+    }
+}
+
+
+
+
+/* -- NAVIGATION -- */
+/* ---------------------------------------------- */
+@include media-breakpoint-up($mainnav-min-available-at) {
+    .mn--min .header__brand {
+        background-color: $mainnav-bg;
+    }
+}
+
+
+
+@include media-breakpoint-up($mainnav-max-available-at) {
+    .mn--max {
+        .header__brand {
+            background-color: $mainnav-bg;
+        }
+        .brand-title {
+            color: $mainnav-menu-active-color !important;
+        }
+    }
+}
+
+
+
+
+
+/* -- SIDEBAR -- */
+/* ---------------------------------------------- */
+.sb--pinned .sidebar .sidebar__inner {
+    border-radius: 0;
+}
+
+
+
+.sb--unite, .sb--pinned {
+    .sidebar {
+        border-top-left-radius: $sidebar-unite-outer-border;
+        &::after {
+            display: none !important;
+        }
+    }
+}

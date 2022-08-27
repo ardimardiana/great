@@ -1,0 +1,61 @@
+/* -- SCROLL PAGE TO TOP -- */
+/* ---------------------------------------------- */
+
+
+// Scroll Container
+// ----------------------------------------------
+.scroll-container {
+	pointer-events: none;
+	position: absolute;
+	right: $button-scroll-right-margin;
+    top: Min( calc( 100% - #{$button-scroll-size} ), 120vh );
+    bottom: $button-scroll-size;
+    clip-path: inset(0 0 0 0);
+    z-index: 999;
+}
+
+
+
+
+
+// Scroll Button
+// ----------------------------------------------
+.scroll-page {
+	align-items: center;
+	background-color: $button-scroll-bg;
+    border: $button-scroll-border;
+	border-radius: $border-radius;
+	color: $button-scroll-color !important;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	pointer-events: visible;
+	position: sticky;
+	right: $button-scroll-right-margin;
+	text-decoration: none;
+	top: calc( 100vh - #{ $button-scroll-size } - #{ $button-scroll-bottom-margin } );
+	width: $button-scroll-size;
+	z-index: 99999;
+
+
+
+
+
+    // Draw a chevron icon when the $button-scroll-use-css-chevron-icon variable is true.
+	@if $button-scroll-use-css-chevron-icon {
+		&:after {
+			border-style: solid;
+			border-width: 2px 2px 0 0;
+			content: '';
+			display: inline-block;
+			height: 0.75em;
+			left: calc( 50% - .375em);
+			pointer-events: none;
+			position: absolute;
+			top: calc( 50% - .175em);
+			transform-origin: center center;
+			transform: rotate(-45deg);
+			width: 0.75em;
+		}
+	}
+}

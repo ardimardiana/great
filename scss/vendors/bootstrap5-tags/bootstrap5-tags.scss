@@ -1,0 +1,53 @@
+// Import Bootstrap default variables
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+
+
+// Import Nifty variables and colors
+// ----------------------------------------------
+@import "../../nifty-admin/nifty/functions/functions";
+@import "../../nifty-admin/variables/colors/colors";
+@import "../../nifty-admin/variables/variables";
+
+
+
+.form-control.dropdown {
+    padding: .315rem .5rem;
+    min-height: 1.5rem + 1.1rem;
+    display: flex;
+
+    input[type="text"] {
+        background-color: inherit;
+        color: inherit;
+        &::placeholder {
+            color: $input-placeholder-color;
+        }
+    }
+
+    > div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .btn-close {
+        font-size: .65rem !important;
+        background-color: var( --#{ $variable-prefix }body-bg );
+        filter: none !important;
+        opacity: .85;
+    }
+
+    .badge {
+        display: flex;
+        align-items: center;
+        font-size: var( --#{ $variable-prefix }body-font-size ) !important;
+        font-weight: normal;
+        min-height: calc( 1.15rem + #{ $badge-padding-y * 2 });
+        color: var( --#{ $variable-prefix }comp-active-color );
+    }
+
+    .dropdown-menu {
+        transform: scale(1);
+        padding: .75rem !important;
+    }
+}

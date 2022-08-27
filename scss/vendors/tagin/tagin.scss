@@ -1,0 +1,59 @@
+@import "node_modules/tagin/dist/css/tagin.min";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins/box-shadow";
+
+
+// Import Nifty variables and colors
+// ----------------------------------------------
+@import "../../nifty-admin/nifty/functions/functions";
+@import "../../nifty-admin/variables/colors/colors";
+@import "../../nifty-admin/variables/variables";
+@import "node_modules/bootstrap/scss/variables";
+
+$recompile : false;
+
+.tagin-input {
+    background-color: inherit;
+    color: $input-placeholder-color;
+}
+
+.tagin-tag {
+    border-radius: $border-radius;
+    padding: $badge-padding-y $badge-padding-x;
+    background-color: var( --#{ $variable-prefix }comp-active-bg );
+    color: var( --#{ $variable-prefix }comp-active-color );
+    font-weight: normal;
+    line-height: 1;
+    height: auto;
+}
+
+.tagin-wrapper {
+    padding: calc( #{$input-padding-y} - #{$badge-padding-y}) calc( #{ $input-padding-x } - #{ $badge-padding-x });
+    &.focus {
+        @if $recompile {
+            background-color: $input-focus-bg;
+            color: $input-focus-color;
+            @if $enable-shadows {
+                @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+            } @else {
+                // Avoid using mixin so we can pass custom focus shadow properly
+                box-shadow: $input-focus-box-shadow;
+            }
+        } @else {
+            background-color: inherit;
+            color: inherit;
+            box-shadow: inset 0 1px 2px rgba( var( --#{ $variable-prefix }comp-active-bg-rgb),.075), 0 0 .75rem 0 rgba(0,0,0,.125);
+        }
+
+        border-color: var(--#{ $variable-prefix }comp-active-bg);
+        outline: 0;
+    }
+}
+
+.tagin-tag-remove {
+    margin-left: .25rem;
+    height: 1.15rem;
+    width: 1.15rem;
+    background-repeat: no-repeat;
+    filter: grayscale(.75) brightness(1.4);
+}

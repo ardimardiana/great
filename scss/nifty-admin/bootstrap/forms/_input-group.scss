@@ -1,0 +1,16 @@
+/* -- INPUT GROUP -- */
+/* ---------------------------------------------- */
+
+
+.input-group {
+	&.rounded-pill {
+		> :first-child {
+			border-top-left-radius: $border-radius-pill;
+			border-bottom-left-radius: $border-radius-pill;
+		}
+		> :last-child:not(.dropdown-menu), > .dropdown-toggle:nth-last-child(2) {
+			border-top-right-radius: $border-radius-pill;
+			border-bottom-right-radius: $border-radius-pill;
+		}
+	}
+}

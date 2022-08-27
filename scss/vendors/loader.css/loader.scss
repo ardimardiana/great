@@ -1,0 +1,14 @@
+$primary-color    : var( --looader-primary-color );
+
+
+.loader {
+    --looader-primary-color : var( --bs-primary );
+
+    display: inline-flex;
+    min-width: 4.6875rem;
+    min-height: 4.6875rem;
+    align-items: center;
+    justify-content: center;
+}
+
+@import "node_modules/loaders.css/src/loaders.scss";

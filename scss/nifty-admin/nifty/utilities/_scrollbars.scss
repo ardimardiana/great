@@ -1,0 +1,10 @@
+/* -- SCROLLBARS -- */
+/* ---------------------------------------------- */
+
+
+// Override the default browser scrollbars
+// ----------------------------------------------
+html, body, .scrollable-content {
+	@include scrollbar();
+	@include webkit-scrollbar();
+}

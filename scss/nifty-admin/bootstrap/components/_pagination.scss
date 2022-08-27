@@ -1,0 +1,39 @@
+/* -- PAGINATION -- */
+/* ---------------------------------------------- */
+
+.page-link {
+    position: relative;
+    transition: $pagination-transition;
+    z-index: 1;
+
+
+    @at-root {
+
+
+        #{&}:hover {
+            background-color: $pagination-hover-bg;
+            border-color: $pagination-hover-border-color;
+            box-shadow: 0 .1rem .5rem rgba( $pagination-hover-bg, .5 ), 0 .25rem 1rem rgba( $black, .2 );
+            color: $pagination-hover-color;
+            z-index: 5;
+        }
+
+
+        #{&}:focus {
+            background-color: $pagination-focus-bg;
+            border-color: $pagination-focus-border-color;
+            box-shadow: 0 0 0 0 $component-active-bg, 0 0 .35rem .2rem rgba( $component-active-bg, .4 ) !important;
+            color: $pagination-focus-color;
+            z-index: 5;
+        }
+
+
+        #{&}:active, .active > #{&} {
+            background-color: $pagination-active-bg;
+            border-color: $pagination-active-border-color;
+            box-shadow: 0 0 .5rem rgba( $component-active-bg, .5 ), 0 0 .25rem rgba( $black, .05 ) !important;
+            color: $pagination-active-color;
+            z-index: 5;
+        }
+    }
+}

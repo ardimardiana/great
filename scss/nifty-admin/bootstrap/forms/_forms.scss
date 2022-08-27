@@ -1,0 +1,34 @@
+/* -- FORMS -- */
+/* ---------------------------------------------- */
+
+.form-control, .form-select {
+    box-shadow: none;
+}
+
+
+
+.form-control-plaintext {
+	outline: none !important;
+}
+
+
+
+.form-control-color {
+    max-width: 2.5rem;
+}
+
+
+
+.form-check-input {
+	&, &:focus {
+		transition: box-shadow .35s;
+	}
+
+}
+
+
+
+.form-control.bg-transparent::placeholder {
+	color: inherit;
+	opacity: .55;
+}

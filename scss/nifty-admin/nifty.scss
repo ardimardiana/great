@@ -1,0 +1,103 @@
+// Functions and breakpoints mixins
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/mixins/breakpoints";
+@import "nifty/functions/functions";
+@import "nifty/mixins/scrollbars";
+
+
+
+// User variables
+// ----------------------------------------------
+@import "../my-custom-styles/variables";
+
+
+
+// Nifty variables
+// ----------------------------------------------
+@import "variables/colors/colors";
+@import "variables/variables";
+
+
+
+// Bootstrap variables
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/variables";
+
+
+
+
+
+// ----------------------------------------------
+// NIFTY STYLES
+// ----------------------------------------------
+
+
+// Components
+// ----------------------------------------------
+@import "nifty/components/searchbox";
+@import "nifty/components/scroll-page";
+@import "nifty/components/backdrop";
+@import "nifty/components/timeline";
+@import "nifty/components/speech-bubble";
+
+
+
+// Contents
+// ----------------------------------------------
+@import "nifty/layouts/root";
+@import "nifty/layouts/reboot";
+@import "nifty/layouts/front-container";
+@import "nifty/layouts/content/content";
+@import "nifty/layouts/content/content-view";
+@import "nifty/layouts/content/content-single";
+
+
+
+// Headers
+// ----------------------------------------------
+@import "nifty/layouts/header/header";
+@import "nifty/layouts/header/expanded";
+@import "nifty/layouts/header/fair";
+
+
+
+// Main Navigation
+// ----------------------------------------------
+@import "nifty/layouts/mainnav/menu-links";
+@import "nifty/layouts/mainnav/min-mode";
+@import "nifty/layouts/mainnav/max-mode";
+@import "nifty/layouts/mainnav/default-nav";
+@import "nifty/layouts/mainnav/push-mode";
+@import "nifty/layouts/mainnav/reveal-mode";
+
+
+
+// Sidebars
+// ----------------------------------------------
+@import "nifty/layouts/sidebar/default-sidebar";
+@import "nifty/layouts/sidebar/disable-backdrop";
+@import "nifty/layouts/sidebar/position-static";
+@import "nifty/layouts/sidebar/stuck";
+@import "nifty/layouts/sidebar/unite";
+@import "nifty/layouts/sidebar/pinned";
+
+
+
+// Utilities
+// ----------------------------------------------
+@import "nifty/utilities/transition-timing";
+@import "nifty/utilities/scrollbars";
+@import "nifty/utilities/optimize";
+@import "nifty/utilities/object-fit";
+@import "nifty/utilities/print";
+@import "nifty/utilities/ribbon";
+@import "nifty/utilities/error-code";
+
+
+
+// Layouts
+// ----------------------------------------------
+@import "nifty/layouts/boxed-layout";
+@import "nifty/layouts/centered-layout";
+

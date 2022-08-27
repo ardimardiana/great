@@ -1,0 +1,107 @@
+/* -- SIDEBARS -- */
+/* ---------------------------------------------- */
+
+
+.sidebar {
+	align-items: stretch;
+	background-color: $sidebar-bg;
+	box-sizing: content-box;
+	color: $sidebar-color;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: translateX( #{ $sidebar-width } );
+	visibility: hidden;
+	width: 0;
+	z-index: $z-index-sidebar;
+
+    .scrollable-content {
+        scrollbar-width: none;
+    }
+}
+
+
+
+.sidebar__inner {
+	height: 100vh;
+	overflow-x: hidden;
+	padding-block: $sidebar-padding-y;
+	position: sticky;
+	top: 0;
+}
+
+
+
+.sidebar__wrap {
+	padding-inline: $sidebar-padding-x;
+}
+
+
+
+
+
+// Sidebar show state
+// ----------------------------------------------
+@mixin sb--shows {
+	.sidebar {
+		overflow: visible;
+		transform: translateX(0);
+		visibility: visible;
+		width: $sidebar-width;
+		z-index: $backdrop-z-index + 1 ;
+	}
+
+
+
+    // Sidebar transitions
+	@at-root {
+		.sidebar {
+			transition: visibility $sidebar-transition, width 0s linear $sidebar-transition, padding $sidebar-transition $sidebar-transition-timing, transform $sidebar-transition $sidebar-transition-timing;
+		}
+
+
+		#{&} .sidebar {
+			transition: visibility $sidebar-transition, padding $sidebar-transition $sidebar-transition-timing, transform $sidebar-transition $sidebar-transition-timing;
+		}
+	}
+}
+
+
+
+.sb--show {
+    @include sb--shows;
+}
+
+@media ( min-width : $sidebar-pinned-available-at ) {
+    .sb--pinned {
+        @include sb--shows;
+    }
+}
+
+
+
+
+// Hide stuck content and display it in Stuck mode
+// ----------------------------------------------
+.sidebar__stuck {
+	display: none;
+}
+
+
+
+
+
+// Sidebar Gutters
+// ----------------------------------------------
+@if $sidebar-content-gutter {
+	@each $breakpoint, $value in $content-gutters-x {
+		@include media-breakpoint-up($breakpoint) {
+			.sidebar__wrap {
+				padding-inline: Max( $sidebar-padding-x , #{$value - $nav-link-padding-x} );
+			}
+		}
+	}
+}

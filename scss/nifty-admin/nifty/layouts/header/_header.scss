@@ -1,0 +1,285 @@
+/* -- HEADER -- */
+/* ---------------------------------------------- */
+
+
+.header {
+	background-color: $header-bg;
+	color: $header-color;
+	grid-area: 1 / 1 / 2 / 3;
+}
+
+
+.header__inner {
+	align-items: center;
+	display: flex;
+	height: $header-height;
+	padding-inline: $content-gutter-x;
+}
+
+
+
+
+
+// Brand
+// ----------------------------------------------
+.header__brand {
+    background-color: $brand-bg;
+    color: $brand-color;
+	align-items: center;
+	display: flex;
+	height: 100%;
+}
+
+
+.brand-wrap {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    &:hover {
+        transition: transform $header-transition $header-transition-timing;
+        transform: scale(1.1);
+    }
+}
+
+
+.brand-img {
+	margin-inline-end: $brand-img-margin;
+    text-align: center;
+	width: auto;
+
+	img {
+        width: $brand-size;
+        height: $brand-size;
+    }
+
+}
+
+
+.brand-title {
+	display: none;
+}
+
+
+
+
+
+// Header Content
+// ----------------------------------------------
+.header__content {
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	height: 100%;
+	justify-content: space-between;
+}
+
+
+.header__content-start {
+	flex-grow: 1;
+}
+
+
+.header__content-start, .header__content-end {
+	align-items: center;
+	display: flex;
+    gap: .3rem;
+
+	> * { margin: 0 -.1rem }
+}
+
+
+
+
+
+// Header Buttons
+// ----------------------------------------------
+.header__btn {
+	border-radius: $header-btn-border-radius;
+	box-shadow: none !important;
+	color: inherit;
+	font-size: .8rem;
+
+	&:hover, &:focus {
+		background-color: $header-btn-hover-bg;
+		color: $header-btn-hover-color;
+	}
+}
+
+
+
+
+
+// Searchbox
+// ----------------------------------------------
+.header-searchbox {
+	position: relative;
+	margin-left: auto;
+}
+
+
+.searchbox__backdrop {
+	position: relative;
+}
+
+
+
+
+
+// Sticky Header
+// ----------------------------------------------
+.hd--sticky {
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: $z-index-mainnav;
+	}
+
+	&.mn--sticky.mn--max {
+		.mainnav .mainnav__inner{
+			height: calc( 100vh - #{$header-height} );
+			top: $header-height;
+		}
+	}
+}
+
+
+
+
+
+// Searchbox for Small Device
+// ----------------------------------------------
+@include media-breakpoint-down( "md" ) {
+	.header__content {
+
+        // Searchbox container
+        .searchbox {
+            background-color: $header-bg;
+            left: 0;
+            padding-left: var(--bs-gutter-x, 0.75rem);
+            padding-right: var(--bs-gutter-x, 0.75rem);
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            z-index: 9999;
+
+
+            // Seachbox input
+            .searchbox__input {
+                position: fixed;
+                top: -99rem;
+
+
+                @at-root {
+                    #{&}, .header__content .searchbox .searchbox__input:focus ~ .searchbox__backdrop {
+                        margin-bottom: calc( #{ $border-width * 2 } + #{ ( $header-height - ( ( $input-btn-padding-y-sm * 2 ) + $line-height-base )) / 2 });
+                        margin-top: calc( #{ $border-width * 2 } + #{ ( $header-height - ( ( $input-btn-padding-y-sm * 2 ) + $line-height-base )) / 2 });
+                    }
+
+
+                    #{&}, .header__content .searchbox .searchbox__btn {
+                        transition-duration: 0s;
+                    }
+                }
+
+
+                // Backdrop
+                &:focus {
+                    background-color: $header-btn-hover-bg !important;
+                    position: static;
+                    ~ .searchbox__backdrop:after {
+                        background-color: rgba( 0,0,0, .5 );
+                        bottom: 0;
+                        content: "";
+                        display: block;
+                        left: 0;
+                        position: fixed;
+                        right: 0;
+                        top: 0;
+                    }
+                }
+            }
+	    }
+
+
+        // Dropdown menu
+		.dropdown-menu {
+			margin-inline: .5rem !important;
+			max-width: calc( 100vw - 1rem );
+			width: 100vw;
+
+			@at-root {
+				.hd--sticky #{&} {
+					max-height: calc( 100vh - #{ $header-height } - .5rem );
+					overflow-x: hidden;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// Searchbox for Medium device
+// ----------------------------------------------
+@include media-breakpoint-up( "md" ) {
+	.brand-img, .header-searchbox {
+		margin: 0;
+	}
+
+
+	.brand-title {
+		color: $brand-color !important;
+		display: block;
+		font-family: $brand-font-family;
+		font-size: $brand-font-size;
+		font-weight: $brand-font-weight;
+		line-height: $brand-font-size;
+		margin-inline: $brand-img-margin;
+		text-decoration: none !important;
+	}
+
+    .header .searchbox .searchbox__input.bg-transparent {
+        border-radius: $header-btn-border-radius !important;
+        &:focus {
+            background-color: $header-btn-hover-bg !important;
+        }
+    }
+
+	.searchbox__backdrop {
+		height: 100%;
+		margin: 0 !important;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+
+
+
+
+// Show the brand title on Large device
+// ----------------------------------------------
+@include media-breakpoint-up( $mainnav-max-available-at ) {
+	.mn--max .header__brand {
+		transition: max-width $header-transition $header-transition-timing;
+		width: 100%;
+	}
+}
+
+
+
+
+
+// Header Gutters
+// ----------------------------------------------
+@each $breakpoint, $value in $content-gutters-x {
+	@include media-breakpoint-up($breakpoint) {
+		.header__inner {
+			padding-inline: $value;
+		}
+	}
+}

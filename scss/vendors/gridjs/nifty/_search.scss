@@ -1,0 +1,26 @@
+// GridJS - Search input
+// ----------------------------------------------
+
+.gridjs-search.form-control {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    width: auto;
+}
+
+.gridjs-input {
+    background-color: transparent;
+    border-radius: var( --#{ $variable-prefix }border-radius );
+    border: 1px solid transparent;
+    outline: 0 !important;
+    padding: .55rem 1rem;
+    width: 100%;
+
+    &::placeholder {
+        color: var( --#{ $variable-prefix }card-color  );
+    }
+
+    &:focus {
+        border: 1px solid var( --#{ $variable-prefix }comp-active-bg )
+    }
+}

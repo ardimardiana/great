@@ -1,0 +1,217 @@
+/* -- DEFAULT MAIN NAVIGATION -- */
+/* ---------------------------------------------- */
+
+.mainnav {
+	display: flex;
+	grid-area: 2 / 1 / 3 / 2;
+	max-width: $mainnav-max-width;
+	width: $mainnav-max-width;
+
+    .scrollable-content {
+        scrollbar-width: none;
+    }
+}
+
+
+.mainnav__inner {
+	background-color: $mainnav-bg;
+	color: $mainnav-color;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+
+
+    :where( h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ):not(.mainnav__caption) {
+        color: $mainnav-headings-color;
+    }
+
+
+    :where( .border-top, .border-end, .border-bottom, .border-start ) {
+        border-color: $mainnav-border-color !important;
+    }
+
+
+    .dropdown-toggle:after {
+        color: $mainnav-headings-color;
+    }
+
+
+    .text-muted {
+        color: $mainnav-text-muted !important;
+    }
+}
+
+
+
+
+// Show the content only on the max mode
+// ----------------------------------------------
+.d-mn-max {
+    &, &.collapse {
+        display: block;
+    }
+}
+
+.d-mn-min {
+    display: none;
+}
+
+
+
+// User photo profile
+// ----------------------------------------------
+.mainnav__avatar.border {
+    padding: .1rem;
+}
+
+
+
+
+// Main menu
+// ----------------------------------------------
+.mainnav__top-content {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: auto;
+	width: 100%;
+    &.os-host-overflow {
+        overflow: visible;
+    }
+}
+
+
+
+
+
+// Nav content that sticks to the bottom
+// ----------------------------------------------
+.mainnav__bottom-content{
+	background-color: $mainnav-bg;
+	bottom: 0;
+	margin-top: auto;
+	position: sticky;
+}
+
+
+
+
+
+// Navigation horizontal paddings
+// ----------------------------------------------
+.mainnav__top-content, .mainnav__bottom-content {
+	padding-inline: $mainnav-padding;
+}
+
+
+
+
+
+// Navigation Gutters
+// ----------------------------------------------
+@if $mainnav-content-gutter {
+	@each $breakpoint, $value in $content-gutters-x {
+		@include media-breakpoint-up($breakpoint) {
+			.mainnav__top-content, .mainnav__bottom-content {
+				padding-inline: Max( $mainnav-padding , #{$value - $nav-link-padding-x} );
+			}
+		}
+	}
+}
+
+
+
+
+
+// Off-Canvas show state
+// ----------------------------------------------
+.mn--show {
+	.mainnav {
+		transform: translateX( 0 );
+		z-index: $backdrop-z-index + 1;
+	}
+
+
+	@at-root {
+		#{&} .mainnav, .mainnav {
+			transition: transform $mainnav-transition $mainnav-transition-timing;
+		}
+	}
+}
+
+
+
+
+
+// Sticky Navigation.
+// ----------------------------------------------
+.mn--sticky .mainnav__inner {
+	height: 100vh;
+	position: sticky;
+	top: 0;
+}
+
+
+
+
+
+// Off-Canvas navigation.
+// ----------------------------------------------
+.root:not(.mn--max):not(.mn--min) {
+	.mainnav {
+		position: absolute;
+		inset: 0 auto;
+	}
+
+
+	&:not(.mn--show) .mainnav {
+		transform: translateX( 0 - $mainnav-max-width - .0625rem );
+		z-index: $z-index-header + 1;
+	}
+}
+
+
+
+
+
+// Default navigation style for small screen size when container has class .mn--min
+@include media-breakpoint-down($mainnav-min-available-at) {
+	.mainnav__menu .mininav-toggle .nav-label {
+		position: static !important;
+		transform: none !important;
+	}
+
+
+	.mn--min {
+        .mainnav {
+		    inset: 0 auto;
+    		position: absolute;
+        }
+
+        &:not( .mn--show ) .mainnav {
+	    	transform: translateX( 0 - $mainnav-max-width - .0625rem );
+		    z-index: $z-index-header + 1;
+        }
+
+	}
+}
+
+
+
+
+
+// Default navigation style for small screen size when container has class .mn--max
+@include media-breakpoint-down( $mainnav-max-available-at ) {
+	.mn--max {
+        .mainnav {
+		    inset: 0 auto;
+    		position: absolute;
+        }
+
+        &:not( .mn--show ) .mainnav {
+	    	transform: translateX( 0 - $mainnav-max-width - .0625rem );
+		    z-index: $z-index-header + 1;
+        }
+	}
+}

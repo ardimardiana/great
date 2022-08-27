@@ -1,0 +1,54 @@
+/* -- BOXED LAYOUT -- */
+/* ---------------------------------------------- */
+
+
+@media ( min-width : Max( 1024px, #{ $boxed-layout-max-width } ) ) {
+    .boxed-layout {
+        background-attachment: $boxed-layout-bg-attachment;
+        background-color: $boxed-layout-bg-color;
+        background-image: $boxed-layout-bg-image;
+        background-repeat: $boxed-layout-bg-repeat;
+        background-size: $boxed-layout-bg-size;
+        box-shadow: 0 #{ $boxed-layout-padding-top * 2 } 1rem rgba( $black, .25 );
+        margin: 0 auto;
+        max-width: $boxed-layout-max-width;
+        padding-top: $boxed-layout-padding-top;
+        padding-inline-end: 0 !important;
+
+
+
+        // Add clip path to the container.
+        // We use clip-path rather than overflow because overflow will break the sticky position for navigation and headers
+        .root {
+            -webkit-clip-path: inset( 0 0 0 0 round $boxed-layout-border-radius );
+            clip-path: inset( 0 0 0 0 round $boxed-layout-border-radius );
+        }
+
+
+
+        // Fix the backdrop when combining boxed-layout with reveal navigation.
+        .mn--reveal.mn--show:before {
+            max-width: $boxed-layout-max-width;
+            margin: 0 auto;
+            transition: transform $mainnav-reveal-transition $mainnav-reveal-transition-timing !important;
+            transform: translateX( calc( (100% - #{ $boxed-layout-max-width } ) + #{ $mainnav-max-width } ));
+        }
+
+
+
+        .mega-dropdown {
+            max-width: calc( 75 * #{ $boxed-layout-max-width } / 100 );
+        }
+
+
+
+        .searchbox.searchbox--auto-expand .searchbox__input {
+            max-width: 30vw;
+        }
+
+
+        .sb--pinned .sidebar {
+            top: $boxed-layout-padding-top + $header-height + .0625rem;
+        }
+    }
+}

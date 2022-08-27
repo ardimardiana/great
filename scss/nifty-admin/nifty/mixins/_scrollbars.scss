@@ -1,0 +1,45 @@
+// SCROLLBARS MIXINS
+// ----------------------------------------------
+
+
+// New W3C standards
+// ----------------------------------------------
+@mixin scrollbar() {
+	scrollbar-color: $scrollbar-handle-bg #fff0;
+	scrollbar-width: thin;
+}
+
+
+
+// Webkit scrollbar
+// ----------------------------------------------
+@mixin webkit-scrollbar {
+
+	/* width */
+	&::-webkit-scrollbar {
+		width: $scrollbar-handle-size;
+	}
+
+
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background-color: $scrollbar-track-bg;
+	}
+
+
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $scrollbar-handle-bg;
+		border-radius: $scrollbar-handle-border-radius;
+	}
+
+
+
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		background: $scrollbar-handle-bg;
+        width: $scrollbar-handle-hover-size;
+	}
+}

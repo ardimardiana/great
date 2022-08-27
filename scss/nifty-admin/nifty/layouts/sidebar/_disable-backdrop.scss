@@ -1,0 +1,13 @@
+/* -- DISABLE THE SIDEBAR BACKDROP -- */
+/* ---------------------------------------------- */
+
+
+.sb--bd-0.sb--show {
+	&:before {
+		opacity: 0;
+	}
+
+	.sidebar {
+		box-shadow: $sidebar-no-backdrop-shadow;
+	}
+}

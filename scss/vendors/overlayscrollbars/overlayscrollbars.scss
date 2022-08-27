@@ -1,0 +1,187 @@
+@import "./node_modules/overlayscrollbars/css/OverlayScrollbars.min";
+
+
+/* -- SCROLLBAR - CUSTOM OVERLAYSCROLLBAR SKIN BY THEMEON -- */
+/* ---------------------------------------------- */
+$scrollbar-track-size			        : .625rem !default;
+$scrollbar-track-bg				        : transparent !default;
+$scrollbar-handle-size			        : .1875rem !default;
+$scrollbar-handle-hover-size	        : .625rem !default;
+$scrollbar-handle-min-width		        : 6.25rem !default;
+$scrollbar-handle-bg			        : rgba( 0,0,0, .9 ) !default;
+$scrollbar-handle-border-radius	        : 2rem !default;
+$scrollbar-transition-duration	        : .35s !default;
+
+
+
+// Body scrolling with overlayscrollbars
+// ----------------------------------------------
+body.os-host-overflow {
+    &.os-host.boxed-layout {
+        margin: 0 auto !important;
+        min-width: auto !important;
+        position: relative !important;
+
+        >.os-scrollbar-vertical {
+            //top: calc( #{$boxed-layout-padding-top} + 5px ) !important;
+            top: calc( 1rem + 5px ) !important;
+        }
+    }
+
+
+
+    >.os-padding {
+        scroll-behavior: smooth;
+        z-index: auto;
+
+        >.os-viewport>.os-content {
+            height: auto !important;
+        }
+    }
+}
+
+
+
+
+
+// Sidebar with overlayscrollbars
+// ----------------------------------------------
+.root:not(.sb--static) .sidebar__inner.os-host {
+    position: sticky;
+    overflow: visible;
+}
+
+
+
+
+// Nifty Skin
+// ----------------------------------------------
+.os-nifty-minimal {
+	> .os-scrollbar {
+    	padding: 0px;
+		> .os-scrollbar-track {
+			&, > .os-scrollbar-handle {
+				background-color: $scrollbar-track-bg;
+			}
+		}
+
+
+		&, .os-scrollbar-corner {
+			z-index: 1000 !important;
+		}
+
+
+		.os-scrollbar-track {
+			border-radius: $scrollbar-handle-border-radius;
+		}
+	}
+
+
+	> .os-scrollbar-horizontal {
+		right: $scrollbar-track-size;
+		height: $scrollbar-track-size;
+	}
+
+
+	> .os-scrollbar-vertical {
+		bottom: $scrollbar-track-size;
+		width: $scrollbar-track-size;
+	}
+
+
+	> .os-scrollbar-corner {
+		height: $scrollbar-track-size;
+		width: $scrollbar-track-size;
+		background-color: transparent;
+	}
+
+
+	&.os-host-rtl > .os-scrollbar-horizontal {
+    	left: $scrollbar-track-size;
+    	right: 0;
+	}
+
+
+	> .os-scrollbar {
+		> .os-scrollbar-track > .os-scrollbar-handle {
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				background-color: $scrollbar-handle-bg;
+				opacity: 0.5;
+				border-radius: $scrollbar-handle-border-radius;
+                box-shadow: 0 0 0 1px rgba( 255, 255, 255, .2 );
+			}
+
+			&:hover:before {
+				opacity: 0.75;
+			}
+		}
+	}
+
+
+	.os-scrollbar-vertical {
+		> .os-scrollbar-track > .os-scrollbar-handle {
+			min-height: $scrollbar-handle-min-width;
+			&:before {
+				width: $scrollbar-handle-size;
+				right: 1px;
+				left: auto;
+			}
+		}
+	}
+
+
+	> .os-scrollbar-horizontal {
+		> .os-scrollbar-track > .os-scrollbar-handle {
+			min-width: $scrollbar-handle-min-width;
+			&:before {
+				height: $scrollbar-handle-size;
+				bottom: 0;
+				top: auto;
+			}
+		}
+	}
+
+
+	&.os-host-rtl > .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:before {
+		left: 0;
+		right: auto;
+	}
+
+
+	&.os-host-transition {
+		> .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle:before {
+			transition: opacity $scrollbar-transition-duration, width $scrollbar-transition-duration;
+		}
+
+
+		> .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle:before {
+			transition: opacity $scrollbar-transition-duration, height $scrollbar-transition-duration;
+		}
+	}
+
+
+	> .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
+		&:hover:before, &.active:before {
+			height: $scrollbar-handle-hover-size;
+		}
+	}
+
+
+	> .os-scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+		&:hover:before, &.active:before {
+			width: $scrollbar-handle-hover-size;
+		}
+	}
+
+
+	.os-scrollbar-handle:hover {
+		cursor: grab;
+	}
+}

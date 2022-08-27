@@ -1,0 +1,39 @@
+// GridJS - Table TH
+// ----------------------------------------------
+
+.gridjs {
+    &-th {
+        position: relative;
+
+        .gridjs-th-content {
+            float: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
+        &-sort {
+            cursor: pointer;
+            .gridjs-th-content {
+                width: calc(100% - 15px);
+            }
+        }
+
+
+        &-fixed {
+            box-shadow: 0 1px 0 0 var( --#{ $variable-prefix }muted-color );
+            position: sticky;
+            @supports (-moz-appearance: none) {
+                box-shadow: 0 0 0 1px var( --#{ $variable-prefix }muted-color );
+            }
+        }
+    }
+
+    &-th:first-child {
+        border-left: none;
+    }
+
+    &-th:last-child {
+        border-right: none;
+    }
+}

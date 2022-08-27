@@ -1,0 +1,38 @@
+/*============================================*/
+/*             Typography Variables           */
+/*============================================*/
+
+$calendar-font        : var( --bs-font-sans-serif );
+
+$font-weight-light    : 400;
+$font-weight-regular  : 400;
+$font-weight-medium   : 700;
+
+
+.mc-calendar {
+    :where( h1, h2, h3 ) {
+        font-weight: normal !important;
+    }
+    .mc-table__weekday {
+        font-weight: normal !important;
+    }
+    .mc-btn {
+        //font-size: 1rem;
+        font-weight: normal;
+    }
+    .mc-display__date {
+        font-size: clamp( 3rem, 40vw, 5rem );
+    }
+    .mc-display__month {
+        font-size: clamp( 1rem, 9vw, 1.2rem );
+    }
+    .mc-select__data {
+        font-size: clamp( .7rem, 8vw, .9rem );
+    }
+    .mc-display__year {
+        font-size: clamp( 1.75rem, 18vw, 2rem) ;
+    }
+    .mc-picker__footer {
+        padding-top: 2rem;
+    }
+}

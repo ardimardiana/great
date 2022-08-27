@@ -1,0 +1,33 @@
+/* -- OPACITY -- */
+/* ---------------------------------------------- */
+
+$opacity-maps       : (
+    "opacity"       : (
+        css-var     : false,
+        class       : opacity,
+        values      : $opacity
+    ),
+    "bg-opacity"    : (
+        css-var     : true,
+        class       : bg-opacity,
+        values      : $bg-opacity
+    ),
+    "text-opacity"  : (
+        css-var     : true,
+        class       : text-opacity,
+        values      : $text-opacity
+    )
+) !default;
+
+
+@each $o-name, $o-map in $opacity-maps {
+    @each $name, $val in map-get($o-map, "values") {
+        .#{ map-get($o-map, "class") }-#{ $name } {
+            @if map-get($o-map, "css-var") {
+                --#{ $variable-prefix }#{ $o-name }: #{ $val };
+            } @else {
+                opacity: #{ $val };
+            }
+        }
+    }
+}

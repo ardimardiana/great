@@ -1,0 +1,170 @@
+/* -- PINNED SIDEBAR */
+/* ---------------------------------------------- */
+@media ( min-width : $sidebar-pinned-available-at ) {
+
+    .sb--pinned {
+        // The pinned sidebar show state
+        &:not(.mn--show):before {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+
+        &.hd--sticky .sidebar__inner {
+            top: $header-height;
+        }
+
+
+
+        .content__boxed {
+            padding-right: $sidebar-width;
+        }
+
+
+
+        &:not(.mn--push):not(.mn--reveal) .sidebar {
+            transition-duration: 0s !important;
+        }
+
+
+
+        // Set background color to the same as the background content
+        &:not(.sb--unite) .sidebar {
+            background-color: transparent;
+            .sidebar__inner {
+                background-color: $body-bg;
+                color: $body-color;
+            }
+        }
+
+
+
+        // 100vh height content
+        &:not(.sb--static) .sidebar {
+            .sidebar__inner {
+                height: calc( 100vh - #{$header-height});
+                overflow-x: hidden;
+            }
+        }
+
+
+        // Sidebar container
+        .sidebar {
+            height: calc( 100% - #{$header-height} );
+            top: $header-height;
+            z-index: $z-index-header - 2;
+
+            .sidebar__inner {
+                border-top-left-radius: $sidebar-unite-outer-border;
+            }
+        }
+
+    }
+
+
+
+
+
+    // Combine the Pinned sidebar with the Unity
+    // ----------------------------------------------
+    .sb--pinned.sb--unite {
+        .sidebar__inner {
+            border-radius: 0;
+        }
+
+
+        // Left outside border-radius
+        .sidebar:after {
+            background-color: $sidebar-unite-bg;
+            content: "";
+            display: block;
+            height: $sidebar-unite-outer-border;
+            margin-left: #{ 0 - $sidebar-unite-outer-border };
+            margin-top: -100vh;
+            -webkit-mask-image: radial-gradient(circle at 0 $sidebar-unite-outer-border, transparent 0, transparent $sidebar-unite-outer-border, black #{ $sidebar-unite-outer-border + 0.0625 } );
+            mask-image: radial-gradient(circle at 0 $sidebar-unite-outer-border, transparent 0, transparent $sidebar-unite-outer-border, black #{ $sidebar-unite-outer-border + 0.0625 } );
+            position: relative;
+            top: $header-height;
+            width: $sidebar-unite-outer-border + .06125rem;
+        }
+
+        // Sticky header
+        &.hd--sticky .sidebar:after {
+            position: sticky;
+        }
+
+
+        // Right outside border-radius
+        &.hd--expanded {
+            .content__header:after {
+                align-self: flex-end;
+                background-color: $sidebar-unite-bg;
+                content: "";
+                display: block;
+                height: $sidebar-unite-outer-border + .0625rem;
+                -webkit-mask-image: radial-gradient( circle at 0 $sidebar-unite-outer-border, transparent $sidebar-unite-outer-border, black #{ $sidebar-unite-outer-border + 0.0625 } );
+                mask-image: radial-gradient( circle at 0 $sidebar-unite-outer-border, transparent $sidebar-unite-outer-border, black #{ $sidebar-unite-outer-border + 0.0625 } );
+                position: absolute;
+                top: 100%;
+                transition: transform $mainnav-min-transition $mainnav-min-transition-timing;
+                width: $sidebar-unite-outer-border + .0625rem;
+                z-index: $z-index-mainnav;
+            }
+        }
+
+        &.hd--expanded .content__header {
+            //border-bottom-right-radius: 0;
+            border-radius: 0 !important;
+        }
+    }
+}
+
+
+
+
+
+// The Pinned sidebar with centered layout
+// ----------------------------------------------
+@media ( min-width : $centered-layout-max-width ) {
+	.centered-layout {
+		.sb--pinned:not(.sb--unite) .sidebar__inner {
+			border-radius: $sidebar-unite-outer-border;
+		}
+
+
+
+		.sb--pinned {
+			.content__header {
+				padding-inline-end:  calc( (( 100vw - #{$centered-layout-max-width} ) / 2) + #{$sidebar-width} ) !important;
+				width: auto !important;
+			}
+
+
+			.content__boxed {
+				padding-inline-end: calc(  #{$sidebar-width} + #{ map-get( $content-gutters-x, $mainnav-max-available-at )} + .3125rem );
+			}
+
+
+			.sidebar {
+				padding-right: calc( ((100vw - #{$centered-layout-max-width}) / 2) );
+			}
+		}
+
+
+
+        // Mini and max navigation
+		.mn--min, .mn--max {
+			&.sb--pinned {
+				.content__boxed {
+					padding-inline-end: calc( ( ((100vw - #{$centered-layout-max-width}) / 2 ) + #{$sidebar-width} ));
+				}
+
+
+				.sidebar {
+					padding-right: calc( ((100vw - #{$centered-layout-max-width}) / 2) );
+				}
+			}
+		}
+	}
+}

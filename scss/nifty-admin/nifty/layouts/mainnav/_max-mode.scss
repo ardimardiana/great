@@ -1,0 +1,68 @@
+/* -- MAIN NAVIGATION - MAX / EXPANDED MODE -- */
+/* ---------------------------------------------- */
+
+
+@include media-breakpoint-up($mainnav-max-available-at) {
+	.mn--max {
+		.mainnav {
+            position: relative;
+        }
+        .mainnav__inner {
+            position: absolute;
+        }
+
+		.mainnav {
+			transition: max-width $mainnav-max-transition $mainnav-max-transition-timing;
+			will-change: max-width;
+		}
+
+
+        // Header
+        // ----------------------------------------------
+		.header__inner {
+			padding-inline-start: 0;
+		}
+
+
+		@at-root {
+			#{&}, .mn--min {
+				.header__content {
+					padding-inline-start: #{ map-get( $content-gutters-x, $mainnav-max-available-at )};
+				}
+			}
+		}
+
+
+		.header__brand {
+			padding-inline-start: #{ map-get( $content-gutters-x, $mainnav-max-available-at )};
+			max-width: $mainnav-max-width;
+			width: $mainnav-max-width;
+			will-change: max-width;
+		}
+
+
+
+        // Show the content and hide on the mini mode
+        // ----------------------------------------------
+		// .collapse.d-mini-none {
+		// 	display: block;
+		// }
+	}
+}
+
+
+
+
+
+// Navigation gutters
+// ----------------------------------------------
+$mainnav-max-breakpoint : map-get($grid-breakpoints, $mainnav-max-available-at);
+@each $breakpoint, $value in $content-gutters-x {
+	@if map-get( $grid-breakpoints, $breakpoint ) > $mainnav-max-breakpoint {
+		@include media-breakpoint-up($breakpoint) {
+			.mn--max .header__brand {
+				padding-inline-start: $value;
+			}
+		}
+	}
+}

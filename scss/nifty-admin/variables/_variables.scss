@@ -1,0 +1,828 @@
+
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio						: 1.75 !default;
+
+
+
+// Options
+// ----------------------------------------------
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-caret:                true !default;
+$enable-rounded:              true !default;
+$enable-shadows:              true !default;
+$enable-gradients:            false !default;
+$enable-transitions:          true !default;
+$enable-reduced-motion:       true !default;
+$enable-smooth-scroll:        true !default;
+$enable-grid-classes:         true !default;
+$enable-button-pointers:      true !default;
+$enable-rfs:                  true !default;
+$enable-validation-icons:     true !default;
+$enable-negative-margins:     false !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities:  true !default;
+
+
+
+// Prefix for :root CSS variables
+// ----------------------------------------------
+$variable-prefix                        : bs- !default;
+
+
+
+
+// GLOBAL NIFTY VARIABLES
+// ----------------------------------------------
+$transition-duration                    : .5s !default;
+
+
+
+
+// Spacing
+// ----------------------------------------------
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing. You can add more entries to the $spacers map.
+$spacer									: 1rem !default;
+$spacers: (
+	0: 0,
+	1: $spacer * .25,
+	2: $spacer * .5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3
+) !default;
+
+
+
+// Opacity
+// ----------------------------------------------
+$opacity: (
+    10    : .1,
+    20    : .2,
+    30    : .3,
+    40    : .4,
+    50    : .5,
+    60    : .6,
+    70    : .7,
+    80    : .8,
+    90    : .9,
+    100   : 1
+) !default;
+
+$bg-opacity                             : $opacity !default;
+$text-opacity                           : $opacity !default;
+
+
+
+
+
+// BODY
+// ----------------------------------------------
+// Settings for the `<body>` element.
+// ----------------------------------------------
+$body-bg								: $white !default;
+$body-color								: #7a878e !default;
+$body-text-align						: null !default;
+$text-muted								: opaque( $body-bg, rgba($body-color, .6) ) !default;
+
+
+// LINKS
+// ----------------------------------------------
+// Style anchor elements.
+// ----------------------------------------------
+$link-color                             : $primary !default;
+$link-decoration                        : underline !default;
+$link-shade-percentage                  : 35% !default;
+$link-tint-percentage                   : 35% !default;
+$link-hover-color                       : color-difference($body-bg, shade-color($link-color, $link-shade-percentage), tint-color($link-color, $link-tint-percentage)) !default;
+$link-hover-decoration                  : underline !default;
+
+
+// Grid columns
+// Set the number of columns and specify the width of the gutters.
+// ----------------------------------------------
+$grid-columns                           : 12 !default;
+$grid-gutter-width                      : 1rem !default;
+$grid-row-columns                       : 6 !default;
+
+
+
+// COMPONENTS
+// ----------------------------------------------
+
+// Border-variables
+// ----------------------------------------------
+$border-width							: 1px !default;
+$border-color							: color-difference( $body-bg, rgba(0,0,0, .07), rgba(255,255,255, .1) ) !default;
+
+
+
+// Border-radius-variables
+// ----------------------------------------------
+$border-radius							: .4375rem !default;
+$border-radius-sm						: .3125rem !default;
+$border-radius-lg						: .5625rem !default;
+$border-radius-pill						: 50rem !default;
+
+
+
+// Callout
+// ----------------------------------------------
+$callout-width							: .1875rem !default;
+$callout-active-state					: $component-active-bg !default;
+
+
+
+// Cards
+// ----------------------------------------------
+$card-bg                                : color-difference($body-bg, $white, lighten($gray, 4%)) !default;
+$card-cap-bg							: $card-bg !default;
+$card-title-spacer-y 					: $spacer * .75 !default;
+$card-header-height                     : 3.5rem !default;
+$card-border-width						: $border-width !default;
+$card-border-color						: $border-color !default;
+$card-border-radius						: $border-radius !default;
+$card-box-shadow                        : color-difference($body-bg, 0 1rem 1rem -.75rem rgba(105, 96, 215, 0.175),  0 1rem 1rem -.75rem rgba(0, 0, 0, 0.175)) !default;
+$card-spacer-y							: $spacer + .25 !default;
+$card-spacer-x							: $spacer + .25 !default;
+$card-cap-padding-y						: $card-spacer-y * .75 !default;
+$card-cap-padding-x						: $card-spacer-x !default;
+
+
+
+// TYPOGRAPHY
+// ----------------------------------------------
+// Font-variables
+// ----------------------------------------------
+$font-family-sans-serif					: "Poppins", "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace					: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-size-base							: .75rem; //0.8125rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm							: $font-size-base * .875 !default;
+$font-size-lg							: $font-size-base * 1.25 !default;
+
+$small-font-size						: $font-size-base * .875 !default;
+$sub-sup-font-size						: $font-size-base * .75em !default;
+
+
+$font-weight-lighter                    : lighter !default;
+$font-weight-light                      : 300 !default;
+$font-weight-normal                     : 400 !default;
+$font-weight-semibold                   : 500 !default;
+$font-weight-bold                       : 700 !default;
+$font-weight-bolder                     : bolder !default;
+
+
+// Headings-variables
+// ----------------------------------------------
+$headings-color							: color-contrast( $body-bg, $light, $dark ) !default;
+$headings-font-family                   : "Ubuntu" !default;
+$headings-font-weight                   : 500 !default;
+
+
+
+// Code
+// ----------------------------------------------
+$code-font-size                         : $font-size-base !default;
+$code-color                             : $pink !default;
+
+
+
+// Lead
+// ----------------------------------------------
+$lead-font-size                         : $font-size-base * 1.25 !default;
+$lead-font-weight                       : 400 !default;
+
+
+
+// IMAGES
+// ----------------------------------------------
+$thumbnail-border-color                 : $border-color !default;
+$thumbnail-border-width					: $border-width !default;
+$thumbnail-border-radius				: $border-radius !default;
+$thumbnail-sizes : (
+	xs: 1.75rem,
+	sm: 2.25rem,
+	md: 4rem,
+	lg: 6rem,
+	xl: 8rem,
+	xxl: 16rem
+) !default;
+
+$figure-caption-color                   : $text-muted;
+
+
+// TABLES
+// ----------------------------------------------
+$table-color 							: $body-color !default;
+$table-border-color 					: color-difference($card-bg, lighten($gray, 4.5%), lighten($gray, 13%)) !default;
+$table-border-radius 					: $border-radius !default;
+$table-cell-padding-y 					: .75rem !default;
+
+$table-head-border-color                : color-difference($card-bg, currentColor, shade-color($table-border-color, 0%)) !default;
+$table-striped-color					: $table-color !default;
+//$table-striped-bg-factor				: .03 !default;
+$table-striped-bg						: color-difference($card-bg, lighten($gray, 7%), lighten($gray, 5.5%)) !default;
+
+$table-hover-color						: $table-color !default;
+//$table-hover-bg-factor					: .05 !default;
+$table-hover-bg							: color-difference($card-bg, lighten($gray, 6%), lighten($gray, 6%)) !default;
+
+$table-active-color						: $table-color !default;
+//$table-active-bg-factor					: .075 !default;
+$table-active-bg						: color-difference($card-bg, lighten($gray, 5%), lighten($gray, 7%)) !default;
+
+$table-separate-spacing					: .5rem !default;
+$table-separate-color					: $table-color !default;
+$table-separate-bg-factor				: .035 !default;
+$table-separate-bg						: $gray-400 !default;
+
+
+
+// FORMS
+// ----------------------------------------------
+// Input_variables
+// ----------------------------------------------
+$input-bg								: color-difference($card-bg, $white, lighten($gray, 6%)) !default;
+$input-disabled-bg						: color-difference($card-bg, $gray-200, lighten($gray, 4.5%)) !default;
+$input-disabled-border-color			: color-difference($card-bg, $gray-300, lighten($gray, 5.5%)) !default;
+
+$input-color                            : $body-color !default;
+$input-border-color						: color-difference($card-bg, $border-color, $light) !default;
+$input-focus-border-color               : $component-active-bg !default;
+$input-focus-box-shadow					: color-difference($card-bg, 0 0 .75rem 0 rgba(0,0,0,.125), 0 0 .75rem 0 rgba(0,0,0,.15)) !default;
+$input-transition						: border-color .35s ease-in-out, box-shadow .35s ease-in-out !default;
+
+$input-btn-padding-y					: .55rem !default;
+$input-btn-padding-x					: 1rem !default;
+
+$input-btn-padding-y-sm					: .45rem !default;
+$input-btn-padding-x-sm					: .95rem !default;
+
+$input-btn-font-size					: $font-size-base !default;
+$input-btn-focus-color-opacity			: .1 !default;
+$input-btn-focus-blur					: 0.5rem !default;
+$input-btn-focus-width					: .15rem !default;
+$input-btn-focus-box-shadow				: 0 0 .5rem 0 rgba(0,0,0,.125) !default;
+
+$input-placeholder-color				: color-difference($card-bg, $gray-800, $text-muted) !default;
+$input-plaintext-color					: $body-color !default;
+
+
+
+// Form_control_variable
+// ----------------------------------------------
+$form-text-color						: color-difference($card-bg, $gray-600, $text-muted) !default;
+
+
+
+// Form_select_variables
+// ----------------------------------------------
+$form-select-border-color				: $input-border-color !default;
+$form-select-focus-box-shadow			: $input-focus-box-shadow !default;
+$form-select-indicator-color            : $body-color !default;
+
+
+// Form_check_variables
+// ----------------------------------------------
+$form-check-input-bg                    : $input-bg !default;
+$form-check-input-border				: 1px solid #{ color-difference($card-bg, shade-color($border-color, 15%), $light) } !default;
+$form-check-input-border-radius			: .35em !default;
+$form-check-input-width					: 1.25em !default;
+$form-check-input-focus-box-shadow		: color-difference($card-bg, 0 0 .25rem .25rem shift-color(rgba($component-active-bg, .25), -10%), 0 0 .25rem .25rem rgba( 0,0,0, .1)) !default;
+
+
+
+// Form_switch_variables
+// ----------------------------------------------
+$form-switch-color                      : $white !default;
+$form-switch-bg                         : color-difference($card-bg, $gray-700, tint-color($gray, 17%)) !default;
+$form-switch-width                      : 2.1em !default;
+$form-switch-height                     : 1.35em !default;
+$form-switch-focus-color                : $form-switch-color !default;
+$form-switch-border-radius              : $form-switch-width !default;
+$form-switch-transition                 : background .35s !default;
+$form-switch-checked-color              : $component-active-color !default;
+$form-switch-checked-bg                 : $component-active-bg !default;
+
+
+
+// Form_range_variables
+// ----------------------------------------------
+$form-range-track-height				: .2rem !default;
+$form-range-track-bg					: color-difference($card-bg, $input-disabled-bg, rgba( $black, .15 )) !default;
+$form-range-thumb-active-bg				: shade-color($component-active-bg, 10%) !default;
+$form-range-thumb-focus-box-shadow		: color-difference($card-bg, 0 0 .25rem .25rem shift-color(rgba($component-active-bg, .25), -10%), 0 0 .25rem .25rem rgba(0,0,0, .1)) !default;
+$form-range-thumb-disabled-bg           : $text-muted;
+
+
+// Input_addon_variables
+// ----------------------------------------------
+$input-group-addon-color				: $input-plaintext-color !default;
+$input-group-addon-bg					: $input-bg !default;
+$input-group-addon-border-color			: $input-border-color !default;
+
+
+
+
+
+// ACCORDION
+// ----------------------------------------------
+$accordion-color                        : $body-color !default;
+$accordion-bg                           : $card-bg !default;
+$accordion-border-width                 : 0 !default;
+$accordion-border-color					: $input-border-color !default;
+$accordion-button-active-color          : color-difference($card-bg, shade-color($primary, 10%), tint-color($primary, 10%)) !default;
+$accordion-button-active-bg             : color-difference($card-bg, $gray-100, $gray-300) !default;
+$accordion-icon-width                   : 0.75rem !default;
+$accordion-button-focus-box-shadow      : none !default;
+
+
+// ALERTS
+// ----------------------------------------------
+$alert-bg-scale							: color-difference($card-bg, -80%, -35%) !default;
+$alert-color-scale				     	: color-difference($card-bg, 40%, 55%) !default;
+$alert-border-scale						: color-difference($card-bg, -75%, -45%) !default;
+
+
+
+// BUTTONS
+// ----------------------------------------------
+$btn-padding-x							: $input-btn-padding-x !default;
+$btn-font-size							: $input-btn-font-size * .95 !default;
+$btn-transition							: color .25s ease-in-out, background-color .25s ease-in-out, border-color .25s ease-in-out, box-shadow .25s ease-in-out !default;
+$btn-active-bg-shade-amount				: 30% !default;
+
+
+$btn-padding-y-xs                       : .15rem !default;
+$btn-padding-x-xs                       : .35rem !default;
+$btn-font-size-xs                       : $font-size-sm !default;
+
+
+// Button close
+// ----------------------------------------------
+$btn-close-focus-shadow                 : color-difference($card-bg, $input-btn-focus-box-shadow, none) !default;
+$btn-close-color                        : color-difference($card-bg, $black, $white) !default;
+
+
+
+// BLOCKQUOTE
+// ----------------------------------------------
+$blockquote-margin-y                    : $spacer !default;
+$blockquote-font-size                   : $font-size-base * 1.25 !default;
+$blockquote-footer-color                : var( --#{ $variable-prefix }muted-color ) !default;
+$blockquote-footer-font-size            : $small-font-size !default;
+
+
+
+// BREADCRUMBS
+// ----------------------------------------------
+$breadcrumb-divider                     : quote(">") !default;
+$breadcrumb-divider-color               : $body-color !default;
+$breadcrumb-active-color                : $body-color !default;
+$breadcrumb-font-weight                 : 700 !default;
+$breadcrumb-hover-underline             : true !default;
+
+
+
+// CLOSE BUTTON
+// ----------------------------------------------
+$btn-close-color						: currentColor !default;
+$btn-close-bg							: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='m3.786 2.375-1.411 1.411 4.214 4.214-4.214 4.214 1.411 1.411 4.214-4.214 4.214 4.214 1.411-1.411-4.214-4.214 4.214-4.214-1.411-1.411-4.214 4.214z'/></svg>") !default;
+
+
+
+// DROPDOWN
+// ----------------------------------------------
+$dropdown-animations					: true;
+$dropdown-use-custom-js					: true;
+
+$dropdown-bg                            : color-difference($card-bg, $card-bg, lighten( $card-bg, 4% )) !default;;
+$dropdown-border-color                  : transparent;
+$dropdown-divider-bg					: $border-color !default;
+$dropdown-border-width					: 0 !default;
+$dropdown-box-shadow					: color-difference($card-bg, 0 .5rem 2rem 0rem rgba( 33, 48, 85, 0.31 ), 0 .5rem 1.75rem 0rem rgba( 0, 0, 0, .35 )) !default;
+$dropdown-padding-x						: .5rem !default;
+$dropdown-item-padding-x				: $spacer - $dropdown-padding-x !default;
+$dropdown-item-padding-y                : $spacer * .4 !default;
+
+$dropdown-link-color                    : $body-color !default;
+$dropdown-link-hover-bg                 : color-difference($card-bg, tint-color($gray, 55%), shade-color($gray, 3%)) !default;
+$dropdown-link-hover-color              : color-difference($card-bg, shade-color($dropdown-link-color, 30%), tint-color($dropdown-link-color, 50%)) !default;
+
+$dropdown-transition-in 				: $transition-duration * .7 !default;
+$dropdown-transition-out 				: $dropdown-transition-in !default;
+$dropdown-start-gap						: 2.5rem !default;
+$dropdown-transition-timing-in 			: ease !default;
+$dropdown-transition-timing-out 		: linear !default;
+
+$dropdown-dark-color                    : $gray-300 !default;
+$dropdown-dark-bg                       : $dark !default;
+
+
+
+// LIST GROUP
+// ----------------------------------------------
+$list-group-color						: $body-color !default;
+$list-group-bg							: transparent !default;
+$list-group-border-color				: $border-color !default;
+
+$list-group-hover-bg					: $dropdown-link-hover-bg !default;
+$list-group-action-hover-color			: $list-group-color !default;
+$list-group-action-active-bg			: $gray-300 !default;
+$list-group-action-active-color			: $headings-color !default;
+$list-group-item-bg-scale               : color-difference($card-bg, -70%, 25%) !default;
+$list-group-disabled-color              : color-difference($card-bg, $gray-600, shade-color($body-color, 30%)) !default;
+
+
+
+// MODAL
+// ----------------------------------------------
+$modal-content-bg						: color-difference($card-bg, $white, $card-bg) !default;
+$modal-content-border-color				: $border-color !default;
+$modal-content-border-radius			: $border-radius !default;
+
+$modal-backdrop-bg						: $black !default;
+$modal-backdrop-opacity					: .65 !default;
+
+
+
+// NAVS TABS
+// ----------------------------------------------
+$nav-icon-color							: color-difference($card-bg, $gray-600, $text-muted) !default;
+$nav-link-height						: 2.5rem !default;
+$nav-link-color							: $body-color !default;
+$nav-link-hover-color					: $component-active-bg !default;
+$nav-link-disabled-color                : color-difference($card-bg, $gray-600, $text-muted) !default;
+$nav-tabs-bg							: color-difference($card-bg, tint-color($body-bg, 55%), tint-color( $body-bg, 10.75% )) !default;
+$nav-tabs-bg-hover   					: darken($nav-tabs-bg, 5%) !default;
+$nav-tabs-bg-disabled					: rgba($nav-tabs-bg, .4) !default;
+$nav-tabs-border-color					: $border-color !default;
+$nav-tabs-link-hover-border-color		: transparent !default;
+$nav-tabs-link-active-bg                : $card-bg !default;
+$nav-tabs-link-active-color				: $component-active-bg !default;
+$nav-tabs-link-active-border-color      : $nav-tabs-border-color $nav-tabs-border-color $nav-tabs-link-active-bg !default;
+$nav-tabs-content-padding               : $card-spacer-y $card-spacer-x !default;
+
+
+
+// PAGINATION
+// ----------------------------------------------
+$pagination-bg							: transparent !default;
+$pagination-color						: $body-color !default;
+$pagination-border-color				: $border-color !default;
+
+
+$pagination-hover-color					: $component-active-color !default;
+$pagination-hover-bg					: shade-color( $component-active-bg, 20% ) !default;
+$pagination-hover-border-color			: $pagination-hover-bg !default;
+
+
+$pagination-focus-color					: $component-active-color !default;
+$pagination-focus-bg					: shade-color( $component-active-bg, 40% ) !default;
+$pagination-focus-border-color			: $pagination-focus-bg !default;
+
+
+$pagination-active-color				: $component-active-color !default;
+$pagination-active-bg					: $component-active-bg !default;
+$pagination-active-border-color			: $pagination-active-bg !default;
+
+
+$pagination-disabled-color				: rgba( $pagination-color, .5 ) !default;
+$pagination-disabled-bg					: transparent !default;
+$pagination-disabled-border-color		: $pagination-border-color !default;
+
+
+$pagination-transition-duration			: .25s !default;
+$pagination-transition					: color $pagination-transition-duration ease,	background-color $pagination-transition-duration ease, border-color $pagination-transition-duration ease, box-shadow $pagination-transition-duration ease !default;
+
+
+
+// POPOVERS
+// ----------------------------------------------
+$popover-bg								: color-difference($card-bg, $card-bg, tint-color( $card-bg, 5% )) !default;
+$popover-max-width						: 276px !default;
+$popover-border-width					: $border-width !default;
+$popover-border-color					: $border-color !default;
+$popover-border-radius					: $border-radius !default;
+$popover-box-shadow						: color-difference($card-bg, 0 .5rem 1rem 0rem rgba( 105, 96, 215, .2 ), 0 .5rem 1rem 0rem rgba( 0, 0, 0, .2 )) !default;
+
+$popover-header-bg						: rgba($black, .03) !default;
+$popover-header-color					: $headings-color !default;
+
+$popover-body-color						: $body-color !default;
+$popover-arrow-outer-color				: $popover-border-color !default;
+
+
+
+// PROGRESS BARS
+// ----------------------------------------------
+$progress-bg							: color-difference($body-bg, rgba( $black, .075 ), rgba( $white, .125 )) !default;
+$progress-border-radius					: $border-radius !default;
+$progress-font-size						: $font-size-base * .75 !default;
+$progress-bar-color						: color-difference($body-bg, $white, rgba( $white, .1 )) !default;
+$progress-bar-bg						: $primary !default;
+$progress-box-shadow                    : color-difference($body-bg, inset 0 1px 2px rgba($black, .075), inset 0 1px 4px rgba($black, .5)) !default;
+$progress-height						: .5rem !default;
+$progress-heights: (
+	"xs" : 0.0625rem,
+	"sm" : 0.125rem,
+	"md" : .25rem,
+	"lg" : 1rem,
+	"xl" : 1.25rem,
+) !default;
+
+
+
+// TOASTS
+// ----------------------------------------------
+$toast-background-color					: color-difference($card-bg, $white, tint-color( $card-bg, 5.5% )) !default;
+$toast-border-width						: 1px !default;
+$toast-border-color						: transparent !default;
+$toast-border-radius					: $border-radius !default;
+$toast-box-shadow						: $popover-box-shadow !default;
+
+$toast-header-color						: $headings-color !default;
+$toast-header-background-color			: transparent !default;
+$toast-header-border-color				: transparent !default;
+
+
+
+// TOOLTIPS
+// ----------------------------------------------
+$tooltip-color							: $white !default;
+$tooltip-bg								: $dark !default;
+$tooltip-border-radius					: $border-radius !default;
+$tooltip-padding-y						: $spacer * .5 !default;
+$tooltip-padding-x						: $spacer * .75 !default;
+
+
+
+// HELPERS
+// ----------------------------------------------
+$utilities: ();
+
+
+
+
+
+
+// COMPONENTS
+// ----------------------------------------------
+// Scroll to top button
+// ----------------------------------------------
+$button-scroll-bg                       : $component-active-bg !default;
+$button-scroll-color                    : $component-active-color !default;
+$button-scroll-border                   : 4px solid $body-bg !important;
+$button-scroll-size                     : 4em !default;
+$button-scroll-right-margin             : 1rem !default;
+$button-scroll-bottom-margin            : 1rem !default;
+$button-scroll-show-after-scrolldown    : 15.75rem !default;
+$button-scroll-use-css-chevron-icon     : true !default;
+
+
+
+// Searchbox
+// ----------------------------------------------
+$searchbox-focus-bg		                : rgba( 0,0,0, .15 ) !default;
+$searchbox-collapsed-width              : 20vw !default;
+$searchbox-expanded-width               : 35vw !default;
+$searchbox-transition                   : $transition-duration !default;
+$searchbox-transition-delay             : ease !default;
+$searchbox-transition-timing            : .25s !default;
+
+
+
+// Backdrop
+// ----------------------------------------------
+$backdrop-bg                            : rgba( 0,0,0, .55 ) !default;
+$backdrop-z-index                       : 9998 !default;
+
+
+
+// Timeline
+// ----------------------------------------------
+$timeline-dot                           : var( --bs-primary ) !default;
+$timeline-line                          : var( --bs-primary ) !default;
+$timeline-line-width                    : 2px !default;
+$timeline-point-gap                     : .25rem !default;
+$timeline-point-size                    : .5rem !default;
+
+$timeline-entry-gap                     : 1.5rem !default;
+$timeline-gap                           : .75rem !default;
+$timeline-point-margin-top              : .75ex !default;
+$timeline-media-size                    : 2.25rem !default;
+
+
+
+// Bubble speech
+// ----------------------------------------------
+$bubble-border-radius                   : 1.5rem !default;
+$bubble-max-width                       : Min( 400px, 80% ) !default;
+$bubble-primary-bg                      : var( --#{ $variable-prefix }comp-active-bg ) !default;
+$bubble-primary-color                   : var( --#{ $variable-prefix }comp-active-color ) !default;
+$bubble-secondary-bg                    : var( --#{ $variable-prefix }card-bg ) !default;
+$bubble-secondary-color                 : var( --#{ $variable-prefix }card-color ) !default;
+$bubble-arrow-width                     : 7px !default;
+$bubble-arrow-height                    : 5px !default;
+$bubble-padding-y                       : .5rem !default;
+$bubble-padding-x                       : 1rem !default;
+
+
+
+
+
+// CONTENTS
+// ----------------------------------------------
+$content-title-size                     : 2rem !default;
+$content-title-color                    : $primary !default;
+$content-title-weight                   : 400 !default;
+$content-overlapping-size               : 12.5vw !default;
+$content-gutter-x                       : 1rem !default;
+$content-gutter-y                       : 1rem !default;
+$content-gutters-x : (
+	"md" : 1.25rem,
+	"lg" : 1.25rem,
+	"xl" : 1.25rem
+) !default;
+
+
+
+
+
+// LAYOUTS
+// ----------------------------------------------
+
+// Boxed Layout
+// ----------------------------------------------
+$boxed-layout-padding-top               : 1rem !default;
+$boxed-layout-max-width                 : 1200px !default;
+$boxed-layout-bg-color                  : color-difference($card-bg, desaturate( mix( #878787, mix( $white, $primary, 35%), 60% ), 25%), shade-color( $body-bg, 20% )) !default;
+$boxed-layout-bg-repeat                 : no-repeat !default;
+$boxed-layout-bg-image                  : none !default; // EXAMPLE : url("/assets/img/boxed-bg/polygon/bg/8.jpg");
+$boxed-layout-bg-size                   : cover !default;
+$boxed-layout-bg-attachment             : fixed !default;
+$boxed-layout-border-radius             : .75rem !default;
+
+
+
+// Centered layout
+// ----------------------------------------------
+$centered-layout-max-width              : 990px !default;
+
+
+
+
+
+// MAIN NAVIGATION
+// ----------------------------------------------
+$mainnav-link-color                     : $mainnav-color !default;
+$mainnav-link-active                    : color-contrast( $mainnav-bg, $component-active-bg, $light ) !default;
+$mainnav-link-hover                     : color-contrast( $mainnav-bg, $component-active-bg, $light) !default;
+$mainnav-caption-color                  : color-contrast( $mainnav-bg, opaque( $component-active-bg, rgba($mainnav-bg, .7) ), opaque( $light, rgba($mainnav-bg, .5) )) !default;
+$mainnav-icon-color                     : color-difference( $mainnav-bg, desaturate($component-active-bg, 20%), $mainnav-link-color) !default;
+$mainnav-border-color                   : color-difference( $mainnav-bg, opaque( $dark, rgba($mainnav-bg, .85) ), opaque( $white, rgba($mainnav-bg, .90%)) ) !default;
+$mainnav-text-muted                     : color-difference( $mainnav-bg, opaque( $dark, rgba($mainnav-bg, .7) ), opaque( $white, rgba($mainnav-bg, .7) ) ) !default;
+$mainnav-headings-color                 : color-difference( $mainnav-bg, $dark, $white ) !default;
+$mainnav-padding                        : .75rem !default;
+$mainnav-content-gutter                 : true !default;
+$mainnav-transition                     : $transition-duration !default;
+$mainnav-transition-timing              : ease !default;
+
+// Active link and submenu 1st level.
+$mainnav-submenu-active-bg              : $component-active-bg !default;
+$mainnav-submenu-active-color           : $component-active-color !default;
+$mainnav-submenu-active-shadow          : none !default; // Example - Add a border to the left : inset 5px 0 0 0px $component-active-bg;
+
+// Submenus
+$mainnav-submenu-indent                 : 2.25em !default;
+$mainnav-submenu-indent-lv2             : .75em !default;
+$mainnav-submenu-border-radius          : $border-radius !default;
+$mainnav-submenu-dashed-margin          : 1.75em !default;
+$mainnav-submenu-dashed-color           : color-difference($card-bg, rgba( $black, .45 ), rgba( $white, .2 )) !default;
+
+// Max Mode
+$mainnav-max-width                      : 13.75rem !default; //220px;
+$mainnav-max-available-at               : "lg" !default;
+$mainnav-max-transition                 : $mainnav-transition !default;
+$mainnav-max-transition-timing          : $mainnav-transition-timing !default;
+
+// Min Mode
+$mainnav-min-icon-color                 : $mainnav-color !default;
+$mainnav-min-icon-active-color          : $mainnav-submenu-active-color !default;
+$mainnav-min-submenu-active-bg          : $mainnav-submenu-active-bg !default;
+$mainnav-min-submenu-active-color       : $mainnav-submenu-active-color !default;
+$mainnav-min-width                      : 3.75rem !default;
+$mainnav-min-available-at               : "lg" !default;
+$mainnav-min-shadow                     : .25rem 0 1.5rem 0 rgba(0, 0, 0, 0.2) !default;
+$mainnav-min-transition                 : $mainnav-transition !default;
+$mainnav-min-transition-timing          : $mainnav-transition-timing !default;
+
+// Offcanvas : Push mode
+$mainnav-push-transition                : $mainnav-transition !default;
+$mainnav-push-transition-timing         : $mainnav-transition-timing !default;
+
+// Offcanvas : Reveal mode
+$mainnav-reveal-transition              : $mainnav-transition !default;
+$mainnav-reveal-transition-timing       : $mainnav-transition-timing !default;
+
+
+
+// HEADERS
+// ----------------------------------------------
+$header-btn-hover-bg                    : color-difference($header-bg, opaque($header-bg, rgba(0,0,0, .035)), opaque($header-bg, rgba(0,0,0, .15))) !default;
+$header-btn-hover-color                 : color-difference($header-bg, darken($header-color, 25%), lighten($header-color, 15%)) !default;
+$header-height                          : 3.125rem !default;
+$header-btn-border-radius               : $border-radius * 2 !default;
+$header-transition                      : $transition-duration !default;
+$header-transition-timing               : ease !default;
+
+// Expanded Header
+$header-expand-bg                       : $header-bg !default;
+$header-expand-color                    : darken($header-color, 5%) !default;
+$header-expand-title-color              : color-difference($header-bg, $component-active-bg, lighten($header-color, 15%)) !default;
+$header-expand-headings-color           : $header-expand-title-color !default;
+$header-expand-use-start-ouside-radius  : true !default;
+
+// Brand
+$brand-bg                               : transparent !default;
+$brand-color                            : color-difference($header-bg, $component-active-bg, lighten($header-color, 15%)) !default;
+$brand-size                             : 27px !default;
+$brand-img-margin                       : .5rem !default;
+$brand-font-size                        : 1.25rem !default;
+$brand-font-weight                      : 500 !default;
+$brand-font-family                      : "Ubuntu", sans-serif !default;
+$brand-border-radius                    : $border-radius * 2 !default;
+
+
+
+// SIDEBAR
+// ----------------------------------------------
+$sidebar-bg                             : color-difference($body-bg, $white, $body-bg) !default;
+$sidebar-color                          : $body-color !default;
+$sidebar-padding-y                      : 1.5rem !default;
+$sidebar-padding-x                      : .5rem !default;
+$sidebar-content-gutter                 : true !default;
+$sidebar-width                          : 17.1875rem !default;
+$sidebar-transition                     : $transition-duration !default;
+$sidebar-transition-timing              : ease !default;
+$sidebar-no-backdrop-shadow             : color-difference($card-bg, 0 .5rem 3rem rgba( $black, .5 ), 0 .5rem 3rem rgba( 0,0,0, .5 )) !default;
+
+// Pinned sidebar
+$sidebar-pinned-available-at            : 1195px !default;
+
+// Unite sidebar
+$sidebar-unite-bg                       : $header-bg !default;
+$sidebar-unite-color                    : $header-color !default;
+$sidebar-unite-active-bg                : color-difference( $sidebar-unite-bg, opaque( $sidebar-unite-bg, rgba($primary, .1) ), opaque( $sidebar-unite-bg, rgba(255,255,255, .09) ) ) !default;
+$sidebar-unite-active-color             : color-difference( $sidebar-unite-bg, darken($sidebar-unite-color, 25%), lighten($sidebar-unite-color, 15%)) !default;
+$sidebar-unite-border-color             : color-difference( $sidebar-unite-bg, opaque( $dark, rgba($sidebar-unite-bg, .85) ), opaque( $light, rgba($sidebar-unite-bg, .85) ) ) !default;
+$sidebar-unite-outer-border             : $border-radius * 2.5 !default;
+
+
+
+// MEDIA PRINT
+// ----------------------------------------------
+$print-bg                               : #fff !default;
+$print-color                            : #555e69 !default;
+$print-black                            : #30353b !default;
+$print-gray                             : #ecf1f4 !default;
+$print-muted                            : #727e8c !default;
+
+
+
+// Z-INDEX
+// ----------------------------------------------
+$z-index-header                         : 1001 !default;
+$z-index-mainnav                        : 1000 !default;
+$z-index-sidebar                        : 1002 !default;
+
+
+
+// TRANSITION TIMINGS
+// ----------------------------------------------
+$transition-timings : (
+	"in-quart"                          : cubic-bezier(0.755, 0.045, 0.915, 0.135),
+	"out-quart"                         : cubic-bezier(0.015, 0.770, 0.040, 0.985),
+	"in-back"                           : cubic-bezier(0.705, -0.155, 0.735, 0.045),
+	"out-back"                          : cubic-bezier(0.280, 1.020, 0.360, 1.145),
+	"in-out-back"                       : cubic-bezier(1.000, -0.280, 0.000, 1.275),
+	"steps"                             : cubic-bezier(0.000, 0.955, 1.000, 0.045),
+	"jumping"                           : cubic-bezier(0.005, 1.045, 0.250, 0.915),
+	"rubber"                            : cubic-bezier(0.135, 1.525, 0.000, 0.900)
+) !default;
+
+
+
+// SCROLLBARS
+// ----------------------------------------------
+$scrollbar-track-size			        : .625rem !default;
+$scrollbar-track-bg				        : transparent !default;
+$scrollbar-handle-size			        : .1875rem !default;
+$scrollbar-handle-hover-size	        : .625rem !default;
+$scrollbar-handle-min-width		        : 6.25rem !default;
+$scrollbar-handle-bg			        : color-difference($card-bg, rgba( $gray-900, .5 ), tint-color( $body-bg, 20%) ) !default;
+$scrollbar-handle-border-radius	        : 2rem !default;
+$scrollbar-transition-duration	        : .35s !default;

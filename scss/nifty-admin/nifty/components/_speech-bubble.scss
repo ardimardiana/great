@@ -1,0 +1,50 @@
+/* -- SPEECH BUBBLE -- */
+/* ---------------------------------------------- */
+
+.bubble {
+    background-color: $bubble-secondary-bg;
+    border-radius: $bubble-border-radius;
+    border-end-start-radius: 0;
+    color: $bubble-secondary-color;
+    display: inline-flex;
+    flex-direction: column;
+    max-width: #{ $bubble-max-width };
+    padding: $bubble-padding-y $bubble-padding-x;
+    position: relative;
+
+
+    // Arrow triangle
+    // ----------------------------------------------
+    &:after {
+        border-color: transparent transparent #{ $bubble-secondary-bg } transparent;
+        border-style: solid;
+        border-width: 0 0 $bubble-arrow-height $bubble-arrow-width;
+        bottom: 0;
+        content: "";
+        display: block;
+        left: -#{ $bubble-arrow-width };
+        position: absolute;
+        width: 0;
+        z-index: 1;
+    }
+
+
+    // Primary bubble at right side
+    // ----------------------------------------------
+    @at-root {
+        &.bubble-primary, .bubble-primary #{&} {
+            background-color: $bubble-primary-bg;
+            border-radius: $bubble-border-radius;
+            border-end-end-radius: 0;
+            color: $bubble-primary-color;
+
+            &:after {
+                border-color: transparent transparent transparent #{ $bubble-primary-bg };
+                border-width: $bubble-arrow-height 0 0 $bubble-arrow-width;
+                left: auto;
+                right: -#{ $bubble-arrow-width };
+            }
+        }
+    }
+}
+

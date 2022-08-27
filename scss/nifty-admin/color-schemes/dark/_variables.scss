@@ -1,0 +1,141 @@
+// DARK COLOR SCHEME
+// ----------------------------------------------
+// HINT :
+// 1. Please try changing the primary and gray colors first -
+// all colors should be automatically changed.
+
+// 2. You can also change all the optional variables,
+// or find more variables at "scss/nifty-admin/variables/_variables.css"
+// and from Bootstrap's _variables.scss ( https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss )
+
+// 3. Set this as the default color scheme:
+// - Import it into "scss/nifty-admin/variables/colors/_default-scheme.scss" OR
+// - Paste all these variables into "scss/my-custom-styles/variables.scss" (Please remove all !default properties).
+
+
+// Theme-color-variables
+// ----------------------------------------------
+$primary                                   : #4176ef;
+$gray                                      : #373f4b;
+
+
+
+
+
+// Gray-color-variables
+// ----------------------------------------------
+$gray-100                                  : lighten($gray, 16%);
+$gray-200                                  : lighten($gray, 12%);
+$gray-300                                  : lighten($gray, 8%);
+$gray-400                                  : lighten($gray, 4%);
+$gray-500                                  : $gray;
+$gray-600                                  : shade-color($gray, 7%);
+$gray-700                                  : shade-color($gray, 14%);
+$gray-800                                  : shade-color($gray, 21%);
+$gray-900                                  : shade-color($gray, 28%);
+
+
+
+// Theme colors
+// ----------------------------------------------
+$light                                     : lighten($gray, 13%);
+$dark                                      : mix( #000, $gray, 35%);
+
+
+// Primary components
+// ----------------------------------------------
+$component-active-color                    : $white !default;
+$component-active-bg                       : $primary !default;
+
+
+
+
+
+// BODY
+// ----------------------------------------------
+// Settings for the `<body>` element.
+// ----------------------------------------------
+$body-bg                                   : #343b47 !default;
+$body-color                                : #afb4bb !default;
+
+
+// Boxed Layout
+// $boxed-layout-bg-color                   : #000 !default;
+// $boxed-layout-bg-image                   : none !default; // EXAMPLE : url("/assets/img/boxed-bg/polygon/bg/8.jpg") !default;
+
+
+// Links
+// ----------------------------------------------
+$link-color                                : tint-color( $primary, 25% ) !default;
+
+
+
+
+
+// MAIN NAVIGATION
+// ----------------------------------------------
+$mainnav-bg                                : #3d4553 !default;
+$mainnav-color                             : $body-color !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $mainnav-link-color                     : #000 !default;
+// $mainnav-link-active                    : #000 !default;
+// $mainnav-link-hover                     : #000 !default;
+// $mainnav-caption-color                  : #000 !default;
+// $mainnav-icon-color                     : #000 !default;
+// $mainnav-border-color                   : #000 !default;
+// $mainnav-text-muted                     : #000 !default;
+// $mainnav-headings-color                 : #000 !default;
+
+// // Active link and submenu 1st level.
+// $mainnav-submenu-active-bg              : #000 !default;
+// $mainnav-submenu-active-color           : #000 !default;
+// $mainnav-submenu-active-shadow          : none !default; // Example - Add a border to the left : inset 5px 0 0 0px $component-active-bg !default;
+
+// // Mini navigation colors
+// $mainnav-min-icon-color                 : #000 !default;
+// $mainnav-min-icon-active-color          : #000 !default;
+// $mainnav-min-submenu-active-bg          : #000 !default;
+// $mainnav-min-submenu-active-color       : #000 !default;
+
+
+
+
+
+// HEADER
+// ----------------------------------------------
+$header-bg                                 : $body-bg !default;
+$header-color                              : $body-color !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $header-btn-hover-bg                    : #000 !default;
+// $header-btn-hover-color                 : #000 !default;
+
+// // Expanded Header
+// $header-expand-bg                       : #000 !default;
+// $header-expand-color                    : #000 !default;
+// $header-expand-title-color              : #000 !default;
+// $header-expand-headings-color           : #000 !default;
+
+// // Brand
+// $brand-bg                               : $mainnav-bg !default;
+// $brand-color                            : #000 !default;
+
+
+
+
+
+// SIDEBAR
+// ----------------------------------------------
+$sidebar-bg                                : $mainnav-bg !default;
+$sidebar-color                             : $body-color !default;
+
+// OPTIONAL
+// ----------------------------------------------
+// $sidebar-unite-bg                       : #000 !default;
+// $sidebar-unite-color                    : #000 !default;
+// $sidebar-unite-active-bg                : #000 !default;
+// $sidebar-unite-active-color             : #000 !default;
+// $sidebar-unite-border-color             : #000 !default;

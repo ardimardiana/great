@@ -1,0 +1,91 @@
+
+// GriidJS - Pagination
+// ----------------------------------------------
+
+.gridjs-pagination {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.gridjs-summary {
+    color: var( --#{ $variable-prefix }-headings-color );
+    display: inline-flex;
+    margin-bottom: 1rem;
+    width: max-content;
+
+    b { padding-inline: .25rem }
+}
+
+
+.gridjs-pages {
+    display: inline-flex;
+    width: max-content;
+
+    .gridjs-spread {
+        cursor: default
+    }
+
+    > button {
+        background-color: $pagination-bg;
+        border: $pagination-border-width solid $pagination-border-color;
+        color: $pagination-color;
+        display: block;
+        font-size: var( --bs-body-font-size );
+        padding: $pagination-padding-y $pagination-padding-x;
+        position: relative;
+        text-decoration: none;
+        transition: $pagination-transition;
+
+        &:hover:not( .gridjs-spread ):not( :disabled ) {
+            background-color: $pagination-hover-bg;
+            border-color: $pagination-hover-bg;
+            box-shadow: 0 .1rem .5rem rgba( var(--#{ $variable-prefix }comp-active-bg-rgb ), .5 ), 0 .25rem 1rem rgba( 0, 0, 0, .2 );
+            color: $pagination-hover-color;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        &:focus:not( .gridjs-spread ):not( :disabled ) {
+            background-color: $pagination-focus-bg;
+            border-color: $pagination-focus-bg;
+            box-shadow: 0 0 0 0 var( --#{ $variable-prefix }comp-active-bg-rgb ), 0 0 .35rem .2rem rgba( var( --#{ $variable-prefix }comp-active-bg ), .4 );
+            color: $pagination-focus-color;
+            z-index: 5;
+        }
+
+        &:not(:first-child) {
+            margin-left: $pagination-margin-start;
+        }
+
+        &.gridjs-currentPage {
+            background-color: $pagination-active-bg;
+            border-color: $pagination-active-bg;
+            box-shadow: 0 0 .5rem rgba( var( --#{ $variable-prefix }comp-active-bg-rgb ), .5 ), 0 0 .25rem rgba( 0,0,0, .05 ) !important;
+            color: $pagination-active-color;
+            z-index: 5;
+        }
+
+        &:disabled {
+            background-color: $pagination-disabled-bg;
+            color: $pagination-disabled-color;
+            pointer-events: none;
+        }
+
+
+
+        &:first-child {
+            border-bottom-left-radius: $pagination-border-radius;
+            border-top-left-radius: $pagination-border-radius;
+        }
+
+
+        &:last-child {
+            border-bottom-right-radius: $pagination-border-radius;
+            border-top-right-radius: $pagination-border-radius;
+        }
+    }
+}

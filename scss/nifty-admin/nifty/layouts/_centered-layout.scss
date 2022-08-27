@@ -1,0 +1,133 @@
+/* -- CENTERED LAYOUT -- */
+/* ---------------------------------------------- */
+
+
+// Default layout when navigation is currently in off-canvas or mini mode.
+@media ( min-width : $centered-layout-max-width ) {
+    .centered-layout {
+
+
+        // Expanded Header with off-canvas navigation
+        .hd--expanded:not(.mn--max):not(.mn--min) .content__header {
+            box-sizing: content-box;
+            margin: 0;
+            padding-inline: calc( (( 100% - #{ $centered-layout-max-width } ) / 2 ) - #{ map-get( $content-gutters-x, "xl" )});
+            width: calc( #{ $centered-layout-max-width } + #{ map-get( $content-gutters-x, "xl" ) * 2 });
+        }
+
+
+
+        // Set the maximal width
+        .content__boxed, .header__inner, .footer {
+            margin: 0 auto;
+            min-width: calc( #{ $centered-layout-max-width } + #{ map-get( $content-gutters-x, "xl" ) * 2 }) ;
+            max-width: calc( #{ $centered-layout-max-width } + #{ map-get( $content-gutters-x, "xl" ) * 2 }) ;
+        }
+
+
+
+        // Disable max-width when navigation is currently in maximal mode.
+        .mn--max {
+            .content__boxed, .header__inner {
+                max-width: none;
+                margin: 0 auto;
+            }
+        }
+
+
+
+        // Mini navigation mode
+        .mn--min {
+
+            // Headers
+            // ----------------------------------------------
+            .header__inner {
+                padding-inline-start: #{ map-get( $content-gutters-x, "xl" )};
+            }
+
+
+            .header__brand {
+                width: auto;
+                max-width: none;
+                justify-content: start;
+            }
+
+
+            .brand-title {
+                display: block;
+            }
+
+
+
+
+
+            // Content
+            // ----------------------------------------------
+            .content__boxed {
+                margin: 0;
+                max-width: none;
+                padding-left: calc( (( 100vw - #{ $centered-layout-max-width } ) / 2 ) - #{ $mainnav-min-width } - #{ map-get( $content-gutters-x, "xl" )});
+                padding-right: calc( (( 100vw - #{ $centered-layout-max-width } ) / 2 ) - #{ map-get( $content-gutters-x, "xl" )});
+                &:not( .content__header ) {
+                    min-width: 100%;
+                    max-width: min-content; // prevent flex grow while the child use text truncate
+                }
+            }
+
+
+            .content__header:before {
+                transform: translateX( Min( #{ .0625rem - $sidebar-unite-outer-border } , calc( ((( #{ $centered-layout-max-width } - 100vw ) / 2 ) + #{ $mainnav-min-width } + #{ map-get( $content-gutters-x, "xl" )}) - #{ $sidebar-unite-outer-border } )) );
+            }
+        }
+    }
+}
+
+
+
+
+
+// Webkit browsers refuse to use the calc function inside the @media query.
+// so we have to manually calculate the $centered-layout-max-width ( px ) + $mainnav-max-width ( rem ).
+
+//@media only screen and ( min-width : calc( #{ $centered-layout-max-width } + #{ $mainnav-max-width } ) ) {
+@media ( min-width : #{ $centered-layout-max-width + ( ( $mainnav-max-width / ($mainnav-max-width * 0 + 1) ) * 16) } ) {
+    .centered-layout {
+        .mn--max {
+
+            // Set the maximal width
+            .content__boxed, .header__inner {
+                margin: 0 auto;
+                max-width: calc( #{ $centered-layout-max-width } + #{ map-get( $content-gutters-x, "xl" ) * 2} ) ;
+            }
+
+
+
+            .header__brand {
+                width: auto;
+            }
+
+
+
+            .content__boxed {
+                margin: 0;
+                max-width: none;
+                padding-left: calc( (( 100vw - #{ $centered-layout-max-width }) / 2) - #{ $mainnav-max-width } - #{ map-get( $content-gutters-x, "xl" )});
+                padding-right: calc( (( 100vw - #{ $centered-layout-max-width }) / 2 ) - #{ map-get( $content-gutters-x, "xl" )});
+                &:not( .content__header ) {
+                    min-width: 100%;
+                    max-width: min-content; // prevent flex grow while the child use text truncate
+                }
+            }
+
+
+
+            // Repositioning the left outside border-radius.
+            .content__header {
+                &:before {
+                    transform: translateX( Min( #{ .0625rem - $sidebar-unite-outer-border } , calc( ((( #{ $centered-layout-max-width } - 100vw ) / 2 ) + #{ $mainnav-max-width } + #{ $content-gutter-x }))));
+                }
+            }
+        }
+    }
+}
+

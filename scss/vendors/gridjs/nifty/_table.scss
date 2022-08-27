@@ -1,0 +1,11 @@
+// GridJS - Table
+// ----------------------------------------------
+
+.table {
+    max-width: calc( 100% - 5px );
+    table-layout: fixed;
+    width: calc( 100% - 5px );
+    .gridjs-th-fixed {
+        background-color: var( --#{ $variable-prefix }card-bg );
+    }
+}

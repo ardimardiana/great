@@ -1,0 +1,132 @@
+//@import "node_modules/md-date-time-picker/dist/css/mdDateTimePicker.min";
+
+// Import Bootstrap default variables
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+
+
+
+// Import Nifty variables and colors
+// ----------------------------------------------
+@import "../../nifty-admin/nifty/functions/functions";
+@import "../../nifty-admin/variables/colors/colors";
+@import "../../nifty-admin/variables/variables";
+
+
+@import "./node_modules/bootstrap/scss/mixins";
+@import "./node_modules/bootstrap/scss/variables";
+
+
+
+$regular                            : var( --#{ $variable-prefix }font-sans-serif ) !important;
+$md-button-color                    : var( --#{ $variable-prefix }link-color );
+$md-button-color--disabled          : var( --#{ $variable-prefix }muted-color );
+$picker-header-color                : var( --#{ $variable-prefix }comp-active-bg );
+$color-secondary-text               : var( --#{ $variable-prefix }comp-active-color );
+//$color-primary-text : red;
+
+$picker-body-color                  : var( --#{ $variable-prefix }dropdown-bg );
+$md-button-color--focus             : transparent; // btn-hover
+$md-button-color--active            : rgba( 0,0,0, .1 ); // btn-click
+
+$picker-primary-text-theme-color    : var( --#{ $variable-prefix }headings-color ); // days color
+$picker-secondary-text-theme-color  : var( --#{ $variable-prefix }link-color ); //weeks color
+
+$picker-circle-color                : var( --#{ $variable-prefix }gray-400 ); // Time base color
+$picker-line-color                  : var( --#{ $variable-prefix }comp-active-bg );
+
+// SVG Images
+$picker-button-left                 : 'data:image/svg+xml;utf8,<svg fill="var( --#{ $variable-prefix }gray-600 )" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m15.41 16.09-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/><path d="M0-.5h24v24H0z" fill="none"/></svg>';
+$picker-button-left-disabled        : 'data:image/svg+xml;utf8,<svg fill="var( --#{ $variable-prefix }muted-color )" fill-opacity="0.2" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m15.41 16.09-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/><path d="M0-.5h24v24H0z" fill="none"/></svg>';
+$picker-button-right                : 'data:image/svg+xml;utf8,<svg fill="var( --#{ $variable-prefix }link-color )" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m8.59 16.34 4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>';
+$picker-button-right-disabled       : 'data:image/svg+xml;utf8,<svg fill="var( --#{ $variable-prefix }link-color )" fill-opacity="0.2" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m8.59 16.34 4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>';
+
+
+@import "node_modules/md-date-time-picker/src/scss/component";
+
+//date or time component dialog
+.mddtp-picker {
+    border-radius: var( --#{ $variable-prefix }border-radius );
+    box-shadow: 0 .25rem 1.5rem 0 rgba(0,0,0,.25);
+    z-index: 999;
+    &:not( .mddtp-picker--portrait ) .mddtp-picker__header {
+        width: 200px;
+        max-width: 300px;
+    }
+}
+
+
+.mddtp-picker-date {
+    .mddtp-picker__cell.mddtp-picker__cell--selected {
+        background-color: $picker-header-color !important;
+        color: $color-secondary-text !important;
+    }
+}
+
+
+.mddtp-picker--portrait .mddtp-picker__body .mddtp-picker__viewHolder .mddtp-picker__view {
+    vertical-align: top;
+}
+
+
+#mddtp-date__previous, #mddtp-date__next,
+.mddtp-picker--portrait .mddtp-picker__body .mddtp-picker__viewHolder .mddtp-picker__grid span:empty{
+    height: 0;
+}
+
+
+.mddtp-picker--portrait .mddtp-picker__body .mddtp-picker__action {
+    margin-top: 1rem;
+}
+
+// Centered the time picker header
+.mddtp-picker--portrait.mddtp-picker-time .mddtp-picker__header {
+    text-align: center;
+    width: 100%;
+}
+
+.mddtp-picker-date .mddtp-picker__left, .mddtp-picker-date .mddtp-picker__right,
+.mddtp-picker__body .mddtp-picker__viewHolder .mddtp-picker__grid span {
+    border-radius: var(--#{ $variable-prefix }border-radius);
+}
+
+.mddtp-picker, .mddtp-button, .mddtp-picker__title {
+    font-family: var(--#{ $variable-prefix }body-font-family) !important;
+}
+
+.mddtp-button {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    line-height: $btn-line-height;
+    color: $body-color;
+    text-align: center;
+    text-decoration: if($link-decoration == none, null, none);
+    white-space: $btn-white-space;
+    vertical-align: middle;
+    cursor: if($enable-button-pointers, pointer, null);
+    user-select: none;
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size, $btn-border-radius);
+    @include transition($btn-transition);
+
+}
+
+#mddtp-date__cancel, #mddtp-time__cancel {
+    text-transform: capitalize;
+    background-color: var( --#{ $variable-prefix }gray-400 );
+    color: var( --#{ $variable-prefix }headings-color );
+    &:hover { box-shadow: 0 .1rem .5rem rgba( var( --#{ $variable-prefix }light-rgb ), .5 ), 0 .25rem 1rem rgba( $black, .2 ) }
+    &:active { box-shadow: 0 0 .5rem var( --#{ $variable-prefix }light ), 0 0 .75rem rgba( $black, 0.2 ) !important }
+    &:focus, &:active:focus { box-shadow: 0 0 0 1px var( --#{ $variable-prefix }light ), 0 0 .7rem .25rem rgba( var( --#{ $variable-prefix }light-rgb ), .4 ) !important }
+}
+
+
+#mddtp-date__ok, #mddtp-time__ok {
+    color: #fff;
+    background-color: var( --#{ $variable-prefix }comp-active-bg );
+    &:hover { box-shadow: 0 .1rem .5rem rgba( var( --#{ $variable-prefix }comp-active-bg-rgb ), .5 ), 0 .25rem 1rem rgba( $black, .2 ) }
+    &:active { box-shadow: 0 0 .5rem var( --#{ $variable-prefix }comp-active-bg ), 0 0 .75rem rgba( $black, 0.2 ) !important }
+    &:focus, &:active:focus { box-shadow: 0 0 0 1px var( --#{ $variable-prefix }comp-active-bg ), 0 0 .7rem .25rem rgba( var( --#{ $variable-prefix }comp-active-bg-rgb ), .4 ) !important }
+}

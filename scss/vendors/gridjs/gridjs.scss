@@ -1,0 +1,31 @@
+// Import default GridJS Theme
+// ----------------------------------------------
+@import "mermaid/button";
+@import "mermaid/loadingBar";
+@import "mermaid/checkbox";
+
+
+// Import Bootstrap default variables
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+@import "./node_modules/bootstrap/scss/variables";
+
+
+// Import Nifty variables and colors
+// ----------------------------------------------
+@import "../../nifty-admin/nifty/functions/functions";
+@import "../../nifty-admin/variables/colors/colors";
+@import "../../nifty-admin/variables/variables";
+
+
+// Replace a few components with Nifty styles.
+// ----------------------------------------------
+@import "nifty/variables";
+@import "nifty/container";
+@import "nifty/table";
+@import "nifty/pagination";
+@import "nifty/search";
+@import "nifty/wrapper";
+@import "nifty/th";
+@import "nifty/resizable";
+@import "nifty/sort";

@@ -1,0 +1,44 @@
+@import "node_modules/charts.css/dist/charts.min";
+
+
+.charts-css {
+
+    --primary-axis-color   : rgba( var( --bs-headings-color-rgb ), .3);
+    --primary-axis-width   : 2px;
+    --data-axes-color      : var( --bs-gray-300 );
+    --secondary-axes-color : var( --bs-gray-300 );
+
+    // Tooltip
+    &.show-data-on-hover tr:hover .data{
+        white-space: nowrap;
+        font-size: 90%;
+    }
+
+
+    // Label
+    tbody tr th {
+        font-size: 90%;
+        font-weight: 400;
+        text-align: center;
+    }
+
+
+    // Animations
+    &.column.revealing-bars tbody td {
+        transform-origin: bottom;
+        animation: revealing-bars 4s linear infinite;
+    }
+
+
+}
+
+// Animation keyframes
+@keyframes revealing-bars {
+    0% {
+        transform: scaleY(0);
+    }
+
+    15% {
+        transform: scaleY(1);
+    }
+}

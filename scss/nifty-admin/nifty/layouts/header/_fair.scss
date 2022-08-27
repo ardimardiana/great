@@ -1,0 +1,100 @@
+/* -- FAIR HEADER -- */
+/* ---------------------------------------------- */
+
+
+// Header Gutters
+// ----------------------------------------------
+.hd--fair {
+    .header__inner {
+        padding-inline-start: 0 !important;
+    }
+
+    &.mn--min, &.mn--max {
+        .header__brand {
+            background-color: $mainnav-bg;
+            color: $mainnav-link-active;
+        }
+    }
+    .header__brand {
+        background-color: transparent;
+        color: $header-btn-hover-color;
+
+        padding-inline-start: $content-gutter-x;
+        margin-inline-end: .5rem;
+        .brand-title {
+            color: inherit !important;
+        }
+    }
+
+    &.hd--expanded .content__header:before {
+        visibility: hidden;
+    }
+}
+
+
+
+@if $brand-bg != transparent {
+    .root:not( .hd--fair ):not( .hd--expanded ) {
+        .header__brand {
+            padding-inline: map-get($content-gutters-x, "xl");
+            margin-inline-end: .5rem;
+
+            .brand-img {
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+
+ /* -- CENTERED LAYOUT -- */
+ /* ---------------------------------------------- */
+@media ( min-width : #{ $centered-layout-max-width } ) {
+    .hd--fair.mn--max .header__brand {
+        margin-inline-end: 0 !important;
+    }
+
+    .centered-layout {
+        .hd--fair {
+            .header__brand {
+                padding-inline: map-get($content-gutters-x, "xl");
+            }
+
+            &.mn--min, &.mn--max {
+                .header__inner {
+                    max-width: none !important;
+                }
+            }
+
+            &.mn--min .header__brand {
+                width: 100%;
+                max-width: $mainnav-min-width;
+                justify-content: center;
+                padding: 0;
+                margin-inline-end: 0 !important;
+                .brand-title {
+                    display: none;
+                }
+            }
+            &.mn--max .header__brand {
+                width: $mainnav-max-width;
+            }
+        }
+
+    }
+}
+
+
+@media ( min-width : #{ $centered-layout-max-width + ( ( $mainnav-max-width / ($mainnav-max-width * 0 + 1) ) * 16) } ) {
+    .centered-layout .hd--fair.mn--max .header__brand {
+        padding-inline: map-get( $content-gutters-x, $mainnav-max-available-at );
+    }
+}
+
+
+@include media-breakpoint-up( "xl" ) {
+    .centered-layout .hd--fair.mn--max .header__brand {
+        padding-inline: map-get($content-gutters-x, "xl");
+    }
+}

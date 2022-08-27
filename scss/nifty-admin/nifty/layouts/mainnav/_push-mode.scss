@@ -1,0 +1,46 @@
+/* -- MAIN NAVIGATION - OFF CANVAS / PUSH MODE -- */
+/* ---------------------------------------------- */
+
+
+.mn--push {
+	.mainnav {
+		transform: translateX( 0 - $mainnav-max-width - .0625rem );
+	}
+
+
+
+
+
+	// Push transition
+	// ----------------------------------------------
+	@at-root {
+		&, &.mn--show {
+			.mainnav, .content, .header {
+				transition: transform $mainnav-push-transition $mainnav-push-transition-timing;
+			}
+		}
+	}
+
+
+
+
+
+	// Off-Canvas show state
+	// ----------------------------------------------
+	&.mn--show {
+		.mainnav {
+			transform: translateX( 0 );
+			z-index: $backdrop-z-index + 1;
+		}
+
+
+		.content, .header {
+			transform: translateX( $mainnav-max-width );
+		}
+
+
+		&.sb--show.sb--pinned .sidebar {
+			transform: translateX( #{ $mainnav-max-width });
+		}
+	}
+}

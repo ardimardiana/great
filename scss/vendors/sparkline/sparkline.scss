@@ -1,0 +1,110 @@
+// Import Bootstrap functions
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+
+
+// Import Nifty variables and colors
+// ----------------------------------------------
+@import "../../nifty-admin/nifty/functions/functions";
+@import "../../nifty-admin/variables/colors/colors";
+@import "../../nifty-admin/variables/variables";
+
+
+// Import Bootstrap default variables
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/variables";
+
+
+// Sparkline Variants
+// ----------------------------------------------
+$sparkline-variants: (
+  "secondary":  --#{ $variable-prefix }secondary,
+  "success":    --#{ $variable-prefix }success,
+  "info":       --#{ $variable-prefix }info,
+  "warning":    --#{ $variable-prefix }warning,
+  "danger":     --#{ $variable-prefix }danger,
+  "light":      --#{ $variable-prefix }light,
+  "dark":       --#{ $variable-prefix }dark
+) !default;
+
+
+
+// Set the area chart opacity variable.
+.sparkline {
+    --area-opacity : .55;
+}
+
+
+
+// Just the line
+.sparkline {
+    stroke: var( --#{ $variable-prefix }primary );
+    .sparkline--fill {
+        fill: none;
+    }
+
+
+    // Line with highlight area
+    &--area {
+        .sparkline--fill {
+            fill: rgba( var( --#{ $variable-prefix }primary-rgb ), var( --area-opacity ) );
+        }
+    }
+
+
+    // Change the spot color
+    &--spot {
+        fill: var( --#{ $variable-prefix }primary );
+        stroke: var( --#{ $variable-prefix }primary );
+    }
+
+    // Change the cursor color
+    &--cursor {
+        stroke: inherit;
+    }
+}
+
+
+
+
+
+// Sparkline tooltip
+// ----------------------------------------------
+.sparkline--tooltip {
+    position: fixed;
+
+    > .tooltip-inner {
+        align-items: center;
+        display: flex;
+
+        &:before {
+            border-radius: var( --#{ $variable-prefix }border-radius );
+            border: 1px solid rgba( var( --#{ $variable-prefix }body-bg-rgb ), .5);
+            content: "";
+            display: inline-block;
+            height: .5rem;
+            margin-inline-end: .25rem;
+            width: .5rem;
+        }
+    }
+}
+
+
+
+
+
+// Sparkline variants
+// ----------------------------------------------
+@each $name, $color in $sparkline-variants {
+    .sparkline--#{ $name } {
+        stroke: var( $color );
+
+        &.sparkline--area .sparkline--fill {
+            fill: rgba( var( #{$color + "-rgb"} ), var( --area-opacity ) );
+        }
+
+        + .tooltip > .tooltip-inner:before {
+            background-color: var( $color );
+        }
+    }
+}

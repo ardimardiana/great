@@ -1,0 +1,11 @@
+// FUNCTIONS
+// ----------------------------------------------
+
+// Color difference
+@function color-difference($bg, $dark, $light ) {
+    @if (lightness($bg) > 70) {
+        @return $dark;
+    } @else {
+        @return $light;
+    }
+}

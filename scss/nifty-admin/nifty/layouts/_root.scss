@@ -1,0 +1,48 @@
+/* -- ROOT -- */
+/* ---------------------------------------------- */
+
+
+.root {
+	display: grid;
+	gap: 0 0;
+	grid-template-columns: min-content 1fr;
+	grid-template-rows: min-content 1fr;
+	min-height: 100vh;
+	width: 100%;
+}
+
+:root {
+    --#{ $variable-prefix }body-bg               : #{ $body-bg };
+    --#{ $variable-prefix }body-color            : #{ $body-color };
+    --#{ $variable-prefix }card-bg               : #{ $card-bg };
+    --#{ $variable-prefix }dropdown-bg           : #{ $dropdown-bg };
+    --#{ $variable-prefix }headings-color        : #{ $headings-color };
+    --#{ $variable-prefix }muted-color           : #{ $text-muted };
+    --#{ $variable-prefix }link-color            : #{ $link-color };
+    --#{ $variable-prefix }comp-active-bg        : #{ $component-active-bg };
+    --#{ $variable-prefix }comp-active-color     : #{ $component-active-color };
+    --#{ $variable-prefix }border-color          : #{ $border-color };
+
+
+    --#{ $variable-prefix }body-bg-rgb           : #{ to-rgb($body-bg) };
+    --#{ $variable-prefix }body-color-rgb        : #{ to-rgb($body-color) };
+    --#{ $variable-prefix }card-bg-rgb           : #{ to-rgb($card-bg) };
+    --#{ $variable-prefix }dropdown-bg-rgb       : #{ to-rgb($dropdown-bg) };
+    --#{ $variable-prefix }headings-color-rgb    : #{ to-rgb($headings-color) };
+    --#{ $variable-prefix }muted-color-rgb       : #{ to-rgb($text-muted) };
+    --#{ $variable-prefix }link-color-rgb        : #{ to-rgb($link-color) };
+    --#{ $variable-prefix }comp-active-bg-rgb    : #{ to-rgb($component-active-bg) };
+    --#{ $variable-prefix }comp-active-color-rgb : #{ to-rgb($component-active-color) };
+    //--#{ $variable-prefix }border-color-rgb      : #{ to-rgb($border-color) };
+
+    --#{ $variable-prefix }border-radius         : #{ $border-radius };
+}
+
+
+
+body {
+	overflow-x: hidden;
+	position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+}

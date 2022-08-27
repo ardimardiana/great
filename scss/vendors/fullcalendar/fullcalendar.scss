@@ -1,0 +1,35 @@
+@import "node_modules/fullcalendar/main.min";
+
+
+.fc {
+    --fc-event-border-color : var( --bs-primary );
+    --fc-event-bg-color : var( --bs-primary );
+
+
+    a {
+        text-decoration: none !important;
+    }
+
+
+    table {
+        &, th, td {
+            border: 1px solid var( --bs-border-color );
+        }
+    }
+
+
+    .fc-h-event {
+        border: 0;
+    }
+
+
+    .btn {
+        text-transform: capitalize;
+    }
+
+
+    .fc-header-toolbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}

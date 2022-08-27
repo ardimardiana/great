@@ -1,0 +1,11 @@
+// GridJS - Container
+// ----------------------------------------------
+
+.gridjs-container {
+    overflow: hidden;
+    display: inline-block;
+    padding: 0;
+    color: var( --#{ $variable-prefix }body-color );
+    position: relative;
+    z-index: 0;
+}

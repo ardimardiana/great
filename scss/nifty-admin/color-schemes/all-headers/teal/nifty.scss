@@ -1,0 +1,16 @@
+// Bootstrap functions
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+
+
+
+// Variables
+// ----------------------------------------------
+@import "./scss/nifty-admin/variables/colors/default-palette";
+@import "variables";
+
+
+
+// Rebuild the Nifty CSS file.
+// ----------------------------------------------
+@import "./scss/nifty-admin/nifty";

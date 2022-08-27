@@ -1,0 +1,57 @@
+// Bootstrap functions
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/functions";
+
+
+// User variables
+// ----------------------------------------------
+@import "../my-custom-styles/variables";
+
+
+// Nifty variables
+// ----------------------------------------------
+@import "nifty/functions/functions";
+@import "variables/colors/colors";
+@import "variables/variables";
+
+
+
+
+
+// Add new utilies classes
+// ----------------------------------------------
+@import "bootstrap/utilities/sizing";
+
+
+
+
+
+// Bootstrap SCSS
+// ----------------------------------------------
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+
+
+// Nifty Custom Style for Bootstrap's components
+// ----------------------------------------------
+@import "bootstrap/contents/images";
+@import "bootstrap/contents/tables";
+@import "bootstrap/contents/toolbars";
+@import "bootstrap/contents/typography";
+
+@import "bootstrap/forms/forms";
+@import "bootstrap/forms/form-check";
+@import "bootstrap/forms/input-group";
+
+@import "bootstrap/components/badges";
+@import "bootstrap/components/breadcrumb";
+@import "bootstrap/components/buttons";
+@import "bootstrap/components/cards";
+@import "bootstrap/components/dropdown";
+@import "bootstrap/components/list-group";
+@import "bootstrap/components/nav";
+@import "bootstrap/components/pagination";
+@import "bootstrap/components/progress";
+
+@import "bootstrap/utilities/colors";
+@import "bootstrap/utilities/opacity";
