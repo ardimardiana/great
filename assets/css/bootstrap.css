@@ -99,7 +99,7 @@ hr:not([size]) {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Ubuntu";
+/*   font-family: "Ubuntu"; */
   font-weight: 500;
   line-height: 1.2;
   color: #373c43;
